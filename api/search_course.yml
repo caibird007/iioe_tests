@@ -1,7 +1,8 @@
-name: get thing list api
+name: /api/courses/search
 base_url: ${ENV(baseurl)}
 variables:
     token: ${ENV(token)}
+    rootCategoryCode: 'discipline_courses' #tvet-related_courses,professional_development_courses
     size: 12
     name: "data"
     page: 0
@@ -15,8 +16,11 @@ request:
     params:
         size: $size
         name: $name
+        rootCategoryCode: $rootCategoryCode
         page: $page
 validate:
     - eq: ["status_code", 200]
+    - gt: ["content.totalElements",0]
+    - gt: ["content.totalPages",0]
     # - eq: ["content.code", "0"]
     # - eq: ["content.data.total_count", 1]

@@ -1,4 +1,4 @@
-name: search skills  api
+name: /api/skill-stacks/search
 base_url: ${ENV(baseurl)}
 variables:
     token: ${ENV(token)}

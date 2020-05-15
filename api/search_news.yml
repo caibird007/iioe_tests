@@ -1,4 +1,4 @@
-name: search news list api
+name: /api/news
 base_url: ${ENV(baseurl)}
 variables:
     token: ${ENV(token)}
