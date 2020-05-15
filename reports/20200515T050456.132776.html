@@ -1,0 +1,1056 @@
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> - TestReport</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      color: #333;
+      margin: 0 auto;
+      width: 960px;
+    }
+    #summary {
+      width: 960px;
+      margin-bottom: 20px;
+    }
+    #summary th {
+      background-color: skyblue;
+      padding: 5px 12px;
+    }
+    #summary td {
+      background-color: lightblue;
+      text-align: center;
+      padding: 4px 8px;
+    }
+    .details {
+      width: 960px;
+      margin-bottom: 20px;
+    }
+    .details th {
+      background-color: skyblue;
+      padding: 5px 12px;
+    }
+    .details tr .passed {
+      background-color: lightgreen;
+    }
+    .details tr .failed {
+      background-color: red;
+    }
+    .details tr .unchecked {
+      background-color: gray;
+    }
+    .details td {
+      background-color: lightblue;
+      padding: 5px 12px;
+    }
+    .details .detail {
+      background-color: lightgrey;
+      font-size: smaller;
+      padding: 5px 10px;
+      line-height: 20px;
+      text-align: left;
+    }
+    .details .success {
+      background-color: greenyellow;
+    }
+    .details .error {
+      background-color: red;
+    }
+    .details .failure {
+      background-color: salmon;
+    }
+    .details .skipped {
+      background-color: gray;
+    }
+
+    .button {
+      font-size: 1em;
+      padding: 6px;
+      width: 4em;
+      text-align: center;
+      background-color: #06d85f;
+      border-radius: 20px/50px;
+      cursor: pointer;
+      transition: all 0.3s ease-out;
+    }
+    a.button{
+      color: gray;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .button:hover {
+      background: #2cffbd;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      transition: opacity 500ms;
+      visibility: hidden;
+      opacity: 0;
+      line-height: 25px;
+    }
+    .overlay:target {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .popup {
+      margin: 70px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      width: 50%;
+      position: relative;
+      transition: all 3s ease-in-out;
+    }
+
+    .popup h2 {
+      margin-top: 0;
+      color: #333;
+      font-family: Tahoma, Arial, sans-serif;
+    }
+    .popup .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      transition: all 200ms;
+      font-size: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #333;
+    }
+    .popup .close:hover {
+      color: #06d85f;
+    }
+    .popup .content {
+      max-height: 80%;
+      overflow: auto;
+      text-align: left;
+    }
+    .popup .separator {
+      color:royalblue
+    }
+
+    @media screen and (max-width: 700px) {
+      .box {
+        width: 70%;
+      }
+      .popup {
+        width: 70%;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <h1>Test Report: </h1>
+
+  <h2>Summary</h2>
+  <table id="summary">
+    <tr>
+      <th>START AT</th>
+      <td colspan="4">2020-05-15T05:04:56.132776</td>
+    </tr>
+    <tr>
+      <th>DURATION</th>
+      <td colspan="4">1.791 seconds</td>
+    </tr>
+    <tr>
+      <th>PLATFORM</th>
+      <td>HttpRunner 2.5.7 </td>
+      <td>CPython 3.5.2 </td>
+      <td colspan="2">Linux-4.4.0-116-generic-x86_64-with-Ubuntu-16.04-xenial</td>
+    </tr>
+    <tr>
+      <th>STAT</th>
+      <th colspan="2">TESTCASES (success/fail)</th>
+      <th colspan="2">TESTSTEPS (success/fail/error/skip)</th>
+    </tr>
+    <tr>
+      <td>total (details) =></td>
+      <td colspan="2">1 (1/0)</td>
+      <td colspan="2">1 (1/0/0/0)</td>
+    </tr>
+  </table>
+
+  <h2>Details</h2>
+
+  
+  
+  <h3>search skills  api</h3>
+  <table id="suite_1" class="details">
+    <tr>
+      <td>TOTAL: 1</td>
+      <td>SUCCESS: 1</td>
+      <td>FAILED: 0</td>
+      <td>ERROR: 0</td>
+      <td>SKIPPED: 0</td>
+    </tr>
+    <tr>
+      <th>Status</th>
+      <th colspan="2">Name</th>
+      <th>Response Time</th>
+      <th>Detail</th>
+    </tr>
+
+    
+    
+    
+    <tr id="record_1_1">
+      <th class="success" style="width:5em;">success</th>
+      <td colspan="2">search skills  api</td>
+      <td style="text-align:center;width:6em;">1780.58 ms</td>
+      <td class="detail">
+
+        
+        
+        <a class="button" href="#popup_log_1_1_1">log-1</a>
+        <div id="popup_log_1_1_1" class="overlay">
+          <div class="popup">
+            <h2>Request and Response data</h2>
+            <a class="close" href="#record_1_1_1">&times;</a>
+
+            <div class="content">
+              <h3>Name: search skills  api</h3>
+
+              
+
+              
+
+              <h3>Request:</h3>
+              <div style="overflow: auto">
+                <table>
+                  
+                    <tr>
+                      <th>method</th>
+                      <td>
+                        
+                            GET
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>url</th>
+                      <td>
+                        
+                            http://iioe-uat.ichei.org/api/skill-stacks/search?size=12&page=0&keyword=java
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>headers</th>
+                      <td>
+                        
+                            <pre>{
+  &#34;Connection&#34;: &#34;keep-alive&#34;,
+  &#34;Authorization&#34;: &#34;\&#34;Bearer eyJhbGciOiJIUzUxMiJ9.eyJhdXRoIjoiUk9MRV9VU0VSIiwidXNlcklkIjoiM2Y2ZTk0ODEtOTlmYS00Yzg1LWFjNjktYWUxYzIyNjUxMGIwIiwic3ViIjoiMzA2ODA3Mjc1QHFxLmNvbSIsImV4cCI6MTU4OTU5MTc2OH0.Tq8jmZu2YcpkDEyYdv-0RVYZkpJF8ZBMAVHEaoQvTN008yKhZDr6ZnTEbmvSD1z-m1alDFB8tUQ9ukXMsGwYJg\&#34;&#34;,
+  &#34;accept&#34;: &#34;*/*&#34;,
+  &#34;User-Agent&#34;: &#34;python-requests/2.23.0&#34;,
+  &#34;Content-Type&#34;: &#34;application/json&#34;,
+  &#34;Accept-Encoding&#34;: &#34;gzip, deflate&#34;
+}</pre>
+                        
+                      </td>
+                    </tr>
+                  
+                </table>
+              </div>
+
+              <h3>Response:</h3>
+              <div style="overflow: auto">
+                <table>
+                    
+                      <tr>
+                        <th>content_type</th>
+                        <td>
+                          
+                            application/json;charset=UTF-8
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>url</th>
+                        <td>
+                          
+                            http://iioe-uat.ichei.org/api/skill-stacks/search?size=12&page=0&keyword=java
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>ok</th>
+                        <td>
+                          
+                            True
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>body</th>
+                        <td>
+                          
+                            
+                              <pre>{
+  &#34;number&#34;: 0,
+  &#34;content&#34;: [
+    {
+      &#34;evaluableSkillItemCount&#34;: 2,
+      &#34;evaluatedSkillItemCount&#34;: 0,
+      &#34;id&#34;: &#34;3380a0a0-4d9d-4420-81c0-3da817dfbd7a&#34;,
+      &#34;cover&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0903/dnufj2ZUesH7qtGcMr7AopTHevPXo4PxEd2m5GYD.png&#34;,
+      &#34;skillItems&#34;: [
+        {
+          &#34;name&#34;: &#34;Python&#34;,
+          &#34;id&#34;: &#34;44f2c68d-4711-4bc3-9651-077dde935bab&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0903/dnufj2ZUesH7qtGcMr7AopTHevPXo4PxEd2m5GYD.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;JavaScript&#34;,
+          &#34;id&#34;: &#34;8392f65d-e0ae-4cf1-9531-b7adbb7f8cbe&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0904/DVKZeA5o6WpV7AVTMs9KPie56KBX7UpB6RCVdUDF.png&#34;
+        }
+      ],
+      &#34;name&#34;: &#34;CIO Java&#34;,
+      &#34;educationName&#34;: &#34;CIO Times&#34;,
+      &#34;educationLogo&#34;: &#34;https://iioe-uat.obs.ap-southeast-1.myhuaweicloud.com/image/0ca2c8a2-4c2d-42b2-9954-3eb139d84dd7.png&#34;
+    },
+    {
+      &#34;evaluableSkillItemCount&#34;: 10,
+      &#34;evaluatedSkillItemCount&#34;: 0,
+      &#34;id&#34;: &#34;77d1644b-eac0-4b4d-9899-a2c8fb41cc71&#34;,
+      &#34;cover&#34;: null,
+      &#34;skillItems&#34;: [
+        {
+          &#34;name&#34;: &#34;Java&#34;,
+          &#34;id&#34;: &#34;3cf661af-7d89-40f1-9a7e-69f072321ce9&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2017/12/14/ORV0DZm7DSAbFTfa350Y.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Python&#34;,
+          &#34;id&#34;: &#34;44f2c68d-4711-4bc3-9651-077dde935bab&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0903/dnufj2ZUesH7qtGcMr7AopTHevPXo4PxEd2m5GYD.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;RabbitMQ&#34;,
+          &#34;id&#34;: &#34;3b165462-2069-4d7c-b071-774fcadc71b3&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2017/12/14/aCKw8Mqh2RNOMXMMMjdG.jpg&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Shell&#34;,
+          &#34;id&#34;: &#34;81323865-50d6-4f04-92c5-51025283b471&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0903/dI4kbbjsCCpkVBJ8lJNr0FyzTFPTk6sl7AvRONxq.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;OpenStack&#34;,
+          &#34;id&#34;: &#34;4f6a795d-a534-4747-a318-1bb2fbfaff99&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2017/12/15/WAOSML90kyLm3BRd4NFb.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Ansible&#34;,
+          &#34;id&#34;: &#34;99183808-922d-4be6-82a5-4dc9db508cff&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0903/AWoB9gAQFdUQCvSarFVHVUIovnoigrRjMjUTCAPu.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Linux&#34;,
+          &#34;id&#34;: &#34;db254290-2872-49ac-b011-bbc915374d46&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0903/AM5W5C7ncoDSl3JhGWr47wWqJ1OiQPwChULNMgoL.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;MySQL&#34;,
+          &#34;id&#34;: &#34;61dc95ba-08b3-4caa-8cc9-841b97bb374b&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0830/t5N7UZa2NS73DLYjF4udEx9J1g6Nw0oJjahO6PiI.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Git&#34;,
+          &#34;id&#34;: &#34;33ae1588-7d19-465a-ad43-37e142457c73&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0903/J5VHj7A4VMPJ0F4YklIWq9ejkk84DX6qOOupLXam.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Redis&#34;,
+          &#34;id&#34;: &#34;d679f2ae-582b-4036-9367-566f1ce671ce&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0903/n2tONuyBG6Iny1MGWUMB77wuVuWB91y3KsvIi4G8.png&#34;
+        }
+      ],
+      &#34;name&#34;: &#34;Cloud Computing Skills&#34;,
+      &#34;educationName&#34;: null,
+      &#34;educationLogo&#34;: null
+    },
+    {
+      &#34;evaluableSkillItemCount&#34;: 10,
+      &#34;evaluatedSkillItemCount&#34;: 0,
+      &#34;id&#34;: &#34;1f774171-d940-4ca6-8e0c-19bf3edda81e&#34;,
+      &#34;cover&#34;: null,
+      &#34;skillItems&#34;: [
+        {
+          &#34;name&#34;: &#34;Java&#34;,
+          &#34;id&#34;: &#34;3cf661af-7d89-40f1-9a7e-69f072321ce9&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2017/12/14/ORV0DZm7DSAbFTfa350Y.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Shell&#34;,
+          &#34;id&#34;: &#34;81323865-50d6-4f04-92c5-51025283b471&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0903/dI4kbbjsCCpkVBJ8lJNr0FyzTFPTk6sl7AvRONxq.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Apache Spark ML&#34;,
+          &#34;id&#34;: &#34;4d404679-a255-48cb-8338-d23c20d8b0bb&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0903/GTQqpi4AF8W7m3JLeI9pxHXM8WFiAXuhDW1lCB9A.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Hadoop&#34;,
+          &#34;id&#34;: &#34;5a74b6ea-6b50-4364-bcb5-e930ce522e2e&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2017/12/14/PQfO4z8C68tvJ8ZHYUhg.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Memcached&#34;,
+          &#34;id&#34;: &#34;815b7f55-e83c-4be6-acbf-1a9338885c19&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0903/XD2ZjaVPCRzgNMQesMCrXeVsep03iHgo07VUIW4F.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Apache Spark&#34;,
+          &#34;id&#34;: &#34;5e7491f8-2d85-41c0-aa36-ab737e28f7ca&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2017/12/14/WBSOhkhn7RjeXBDpzhV0.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;CSS3&#34;,
+          &#34;id&#34;: &#34;85290436-98da-44f8-8417-f7f47968cf04&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0904/aFSZbF63jl3nf406p1qT8KObbDPpTo57oWDtpbCQ.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;HBase&#34;,
+          &#34;id&#34;: &#34;ecf09a26-31d1-457f-b4da-2a24eaa7035f&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0903/f85i9pcZ2xrkEa0oQAEAUmQMVyiz8dLeDy1598Bk.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Excel&#34;,
+          &#34;id&#34;: &#34;4a4d357f-faf4-43f0-a448-5c1dd69c7492&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0818/2qbN9N1dRa9Vch8EhDSAGzJ1qDnVIr4DZufpsRSq.jpg&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Redis&#34;,
+          &#34;id&#34;: &#34;d679f2ae-582b-4036-9367-566f1ce671ce&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0903/n2tONuyBG6Iny1MGWUMB77wuVuWB91y3KsvIi4G8.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;MapReduce&#34;,
+          &#34;id&#34;: &#34;e7f52077-afd7-4468-ac00-21319431cd52&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0129/Sfh29RoWkJrQzCVyfWAaiMoMgnutuqru1zLCdIuB.jpg&#34;
+        }
+      ],
+      &#34;name&#34;: &#34;大数据分析能力要求&#34;,
+      &#34;educationName&#34;: &#34;Jiker&#34;,
+      &#34;educationLogo&#34;: &#34;https://iioe-uat.obs.ap-southeast-1.myhuaweicloud.com/image/14452922-c745-4579-9f73-c61fe732135b.png&#34;
+    },
+    {
+      &#34;evaluableSkillItemCount&#34;: 5,
+      &#34;evaluatedSkillItemCount&#34;: 0,
+      &#34;id&#34;: &#34;f9bf3ab1-149d-4b49-ba81-d08b851d28d6&#34;,
+      &#34;cover&#34;: null,
+      &#34;skillItems&#34;: [
+        {
+          &#34;name&#34;: &#34;Java&#34;,
+          &#34;id&#34;: &#34;3cf661af-7d89-40f1-9a7e-69f072321ce9&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2017/12/14/ORV0DZm7DSAbFTfa350Y.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;MyBatis&#34;,
+          &#34;id&#34;: &#34;00e59469-936a-4ad9-a002-0eb65ab11add&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0108/8iXbeIeTPNpnjmhZxulrRSYZyZHiZ9t0TqQYBCDB.jpg&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Docker&#34;,
+          &#34;id&#34;: &#34;21a121e4-95ab-4750-8ea8-0ec6faae411e&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2017/12/15/Dw1JyxUrYZxuEaK70y91.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;JSON&#34;,
+          &#34;id&#34;: &#34;4b54c2fd-a3c4-43f9-924e-1e7322179494&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0904/ZAGqavD9MHDKsbQkSQe3iAOwlV8ZaAn5z1OfvyMm.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Spring Boot&#34;,
+          &#34;id&#34;: &#34;111d6bf5-dc07-4c4a-a077-29ba8c565ea3&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2017/12/14/Q1WV2nsV0gUXe2vJCfUP.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;CSS3&#34;,
+          &#34;id&#34;: &#34;85290436-98da-44f8-8417-f7f47968cf04&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0904/aFSZbF63jl3nf406p1qT8KObbDPpTo57oWDtpbCQ.png&#34;
+        }
+      ],
+      &#34;name&#34;: &#34;CSS基础&#34;,
+      &#34;educationName&#34;: null,
+      &#34;educationLogo&#34;: null
+    },
+    {
+      &#34;evaluableSkillItemCount&#34;: 6,
+      &#34;evaluatedSkillItemCount&#34;: 0,
+      &#34;id&#34;: &#34;2837c685-4465-4be5-8ccb-83c3bb962ab9&#34;,
+      &#34;cover&#34;: null,
+      &#34;skillItems&#34;: [
+        {
+          &#34;name&#34;: &#34;Java&#34;,
+          &#34;id&#34;: &#34;3cf661af-7d89-40f1-9a7e-69f072321ce9&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2017/12/14/ORV0DZm7DSAbFTfa350Y.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;MyBatis&#34;,
+          &#34;id&#34;: &#34;00e59469-936a-4ad9-a002-0eb65ab11add&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0108/8iXbeIeTPNpnjmhZxulrRSYZyZHiZ9t0TqQYBCDB.jpg&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Docker&#34;,
+          &#34;id&#34;: &#34;21a121e4-95ab-4750-8ea8-0ec6faae411e&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2017/12/15/Dw1JyxUrYZxuEaK70y91.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;OpenStack&#34;,
+          &#34;id&#34;: &#34;4f6a795d-a534-4747-a318-1bb2fbfaff99&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2017/12/15/WAOSML90kyLm3BRd4NFb.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Storm&#34;,
+          &#34;id&#34;: &#34;25212cb3-d4c8-448e-b571-48b294ca8593&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2017/12/14/DZVgz5pXTYyQkDHqi0mr.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;CSS3&#34;,
+          &#34;id&#34;: &#34;85290436-98da-44f8-8417-f7f47968cf04&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0904/aFSZbF63jl3nf406p1qT8KObbDPpTo57oWDtpbCQ.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;KVM&#34;,
+          &#34;id&#34;: &#34;01a42c3f-c92f-438b-b53a-8bff4663fd4c&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0902/wYkUjCqzHKyJr6w7gZjGbsheudaM5mzbSoTPczxh.png&#34;
+        }
+      ],
+      &#34;name&#34;: &#34;CSS&#34;,
+      &#34;educationName&#34;: null,
+      &#34;educationLogo&#34;: null
+    },
+    {
+      &#34;evaluableSkillItemCount&#34;: 3,
+      &#34;evaluatedSkillItemCount&#34;: 0,
+      &#34;id&#34;: &#34;7ad927d7-d857-4f76-b47f-dca00a847b8e&#34;,
+      &#34;cover&#34;: null,
+      &#34;skillItems&#34;: [
+        {
+          &#34;name&#34;: &#34;Java&#34;,
+          &#34;id&#34;: &#34;3cf661af-7d89-40f1-9a7e-69f072321ce9&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2017/12/14/ORV0DZm7DSAbFTfa350Y.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Logic&#34;,
+          &#34;id&#34;: &#34;6956149d-e2b1-429e-a05b-d2c76b5af62a&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/1008/Q5k15weYIQUpUpmxt97UbWYSoNSKz81VNZJ0K9Hd.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;JavaScript&#34;,
+          &#34;id&#34;: &#34;8392f65d-e0ae-4cf1-9531-b7adbb7f8cbe&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0904/DVKZeA5o6WpV7AVTMs9KPie56KBX7UpB6RCVdUDF.png&#34;
+        }
+      ],
+      &#34;name&#34;: &#34;Java基础&#34;,
+      &#34;educationName&#34;: null,
+      &#34;educationLogo&#34;: null
+    },
+    {
+      &#34;evaluableSkillItemCount&#34;: 3,
+      &#34;evaluatedSkillItemCount&#34;: 0,
+      &#34;id&#34;: &#34;7ad927d7-d857-4f76-b47f-dca00a847b8e&#34;,
+      &#34;cover&#34;: null,
+      &#34;skillItems&#34;: [
+        {
+          &#34;name&#34;: &#34;Java&#34;,
+          &#34;id&#34;: &#34;3cf661af-7d89-40f1-9a7e-69f072321ce9&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2017/12/14/ORV0DZm7DSAbFTfa350Y.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Logic&#34;,
+          &#34;id&#34;: &#34;6956149d-e2b1-429e-a05b-d2c76b5af62a&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/1008/Q5k15weYIQUpUpmxt97UbWYSoNSKz81VNZJ0K9Hd.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;JavaScript&#34;,
+          &#34;id&#34;: &#34;8392f65d-e0ae-4cf1-9531-b7adbb7f8cbe&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0904/DVKZeA5o6WpV7AVTMs9KPie56KBX7UpB6RCVdUDF.png&#34;
+        }
+      ],
+      &#34;name&#34;: &#34;Java基础&#34;,
+      &#34;educationName&#34;: null,
+      &#34;educationLogo&#34;: null
+    },
+    {
+      &#34;evaluableSkillItemCount&#34;: 3,
+      &#34;evaluatedSkillItemCount&#34;: 0,
+      &#34;id&#34;: &#34;88f5afc1-aebc-4ad2-9755-e9c2b7fb798c&#34;,
+      &#34;cover&#34;: null,
+      &#34;skillItems&#34;: [
+        {
+          &#34;name&#34;: &#34;Java&#34;,
+          &#34;id&#34;: &#34;3cf661af-7d89-40f1-9a7e-69f072321ce9&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2017/12/14/ORV0DZm7DSAbFTfa350Y.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Docker&#34;,
+          &#34;id&#34;: &#34;21a121e4-95ab-4750-8ea8-0ec6faae411e&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2017/12/15/Dw1JyxUrYZxuEaK70y91.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;CSS3&#34;,
+          &#34;id&#34;: &#34;85290436-98da-44f8-8417-f7f47968cf04&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0904/aFSZbF63jl3nf406p1qT8KObbDPpTo57oWDtpbCQ.png&#34;
+        }
+      ],
+      &#34;name&#34;: &#34;Keras&#34;,
+      &#34;educationName&#34;: null,
+      &#34;educationLogo&#34;: null
+    },
+    {
+      &#34;evaluableSkillItemCount&#34;: 2,
+      &#34;evaluatedSkillItemCount&#34;: 0,
+      &#34;id&#34;: &#34;00098112-da9d-4370-92cb-b203099255ce&#34;,
+      &#34;cover&#34;: null,
+      &#34;skillItems&#34;: [
+        {
+          &#34;name&#34;: &#34;Java&#34;,
+          &#34;id&#34;: &#34;3cf661af-7d89-40f1-9a7e-69f072321ce9&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2017/12/14/ORV0DZm7DSAbFTfa350Y.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;JavaScript&#34;,
+          &#34;id&#34;: &#34;8392f65d-e0ae-4cf1-9531-b7adbb7f8cbe&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0904/DVKZeA5o6WpV7AVTMs9KPie56KBX7UpB6RCVdUDF.png&#34;
+        }
+      ],
+      &#34;name&#34;: &#34;JavaScript&#34;,
+      &#34;educationName&#34;: null,
+      &#34;educationLogo&#34;: null
+    },
+    {
+      &#34;evaluableSkillItemCount&#34;: 2,
+      &#34;evaluatedSkillItemCount&#34;: 0,
+      &#34;id&#34;: &#34;00098112-da9d-4370-92cb-b203099255ce&#34;,
+      &#34;cover&#34;: null,
+      &#34;skillItems&#34;: [
+        {
+          &#34;name&#34;: &#34;Java&#34;,
+          &#34;id&#34;: &#34;3cf661af-7d89-40f1-9a7e-69f072321ce9&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2017/12/14/ORV0DZm7DSAbFTfa350Y.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;JavaScript&#34;,
+          &#34;id&#34;: &#34;8392f65d-e0ae-4cf1-9531-b7adbb7f8cbe&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0904/DVKZeA5o6WpV7AVTMs9KPie56KBX7UpB6RCVdUDF.png&#34;
+        }
+      ],
+      &#34;name&#34;: &#34;JavaScript&#34;,
+      &#34;educationName&#34;: null,
+      &#34;educationLogo&#34;: null
+    },
+    {
+      &#34;evaluableSkillItemCount&#34;: 13,
+      &#34;evaluatedSkillItemCount&#34;: 0,
+      &#34;id&#34;: &#34;978c1770-6bb5-4992-a49d-cb36fa48e39a&#34;,
+      &#34;cover&#34;: null,
+      &#34;skillItems&#34;: [
+        {
+          &#34;name&#34;: &#34;Linux&#34;,
+          &#34;id&#34;: &#34;db254290-2872-49ac-b011-bbc915374d46&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0903/AM5W5C7ncoDSl3JhGWr47wWqJ1OiQPwChULNMgoL.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Spring Boot&#34;,
+          &#34;id&#34;: &#34;111d6bf5-dc07-4c4a-a077-29ba8c565ea3&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2017/12/14/Q1WV2nsV0gUXe2vJCfUP.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;JavaScript&#34;,
+          &#34;id&#34;: &#34;8392f65d-e0ae-4cf1-9531-b7adbb7f8cbe&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0904/DVKZeA5o6WpV7AVTMs9KPie56KBX7UpB6RCVdUDF.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Git&#34;,
+          &#34;id&#34;: &#34;33ae1588-7d19-465a-ad43-37e142457c73&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0903/J5VHj7A4VMPJ0F4YklIWq9ejkk84DX6qOOupLXam.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Java&#34;,
+          &#34;id&#34;: &#34;3cf661af-7d89-40f1-9a7e-69f072321ce9&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2017/12/14/ORV0DZm7DSAbFTfa350Y.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Spring&#34;,
+          &#34;id&#34;: &#34;3c9a8a02-3d7c-4710-b482-7c8d7b5787f0&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2018/0803/sY9FbDCsf8wki8uIaPiyO5stqYVLOA8fIQgx6qH4.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;MyBatis&#34;,
+          &#34;id&#34;: &#34;00e59469-936a-4ad9-a002-0eb65ab11add&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0108/8iXbeIeTPNpnjmhZxulrRSYZyZHiZ9t0TqQYBCDB.jpg&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Docker&#34;,
+          &#34;id&#34;: &#34;21a121e4-95ab-4750-8ea8-0ec6faae411e&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2017/12/15/Dw1JyxUrYZxuEaK70y91.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Ajax&#34;,
+          &#34;id&#34;: &#34;47e116d3-9558-4c9c-b634-a71d3180ed32&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0904/SdQ3LQpZBQdOTZOL60uOLmjsS4A7CXHfpRQJOoW6.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;MySQL&#34;,
+          &#34;id&#34;: &#34;61dc95ba-08b3-4caa-8cc9-841b97bb374b&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0830/t5N7UZa2NS73DLYjF4udEx9J1g6Nw0oJjahO6PiI.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Oracle&#34;,
+          &#34;id&#34;: &#34;68434820-dbb2-4bde-8073-335054a33cef&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0830/0RxunP5eVKYhAjirZoWoAIWEUOIC39NRnsqBv3t4.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;CSS3&#34;,
+          &#34;id&#34;: &#34;85290436-98da-44f8-8417-f7f47968cf04&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0904/aFSZbF63jl3nf406p1qT8KObbDPpTo57oWDtpbCQ.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;SpringMVC&#34;,
+          &#34;id&#34;: &#34;a808f7fc-79ea-47c1-8662-736cf520cf55&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2018/0910/aCBCxoVFf745KODfDFInhMvanjSpIMONqAEOEv6c.jpg&#34;
+        },
+        {
+          &#34;name&#34;: &#34;HTML5&#34;,
+          &#34;id&#34;: &#34;91072bf5-9699-492a-a473-e0b66c9aacc6&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0904/8mjVYtMbcYMZ4TtK2VAQfW1qUZ0XiogfpY9Hlb3A.png&#34;
+        }
+      ],
+      &#34;name&#34;: &#34;java&#34;,
+      &#34;educationName&#34;: null,
+      &#34;educationLogo&#34;: null
+    },
+    {
+      &#34;evaluableSkillItemCount&#34;: 13,
+      &#34;evaluatedSkillItemCount&#34;: 0,
+      &#34;id&#34;: &#34;978c1770-6bb5-4992-a49d-cb36fa48e39a&#34;,
+      &#34;cover&#34;: null,
+      &#34;skillItems&#34;: [
+        {
+          &#34;name&#34;: &#34;Linux&#34;,
+          &#34;id&#34;: &#34;db254290-2872-49ac-b011-bbc915374d46&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0903/AM5W5C7ncoDSl3JhGWr47wWqJ1OiQPwChULNMgoL.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Spring Boot&#34;,
+          &#34;id&#34;: &#34;111d6bf5-dc07-4c4a-a077-29ba8c565ea3&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2017/12/14/Q1WV2nsV0gUXe2vJCfUP.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;JavaScript&#34;,
+          &#34;id&#34;: &#34;8392f65d-e0ae-4cf1-9531-b7adbb7f8cbe&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0904/DVKZeA5o6WpV7AVTMs9KPie56KBX7UpB6RCVdUDF.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Git&#34;,
+          &#34;id&#34;: &#34;33ae1588-7d19-465a-ad43-37e142457c73&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0903/J5VHj7A4VMPJ0F4YklIWq9ejkk84DX6qOOupLXam.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Java&#34;,
+          &#34;id&#34;: &#34;3cf661af-7d89-40f1-9a7e-69f072321ce9&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2017/12/14/ORV0DZm7DSAbFTfa350Y.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Spring&#34;,
+          &#34;id&#34;: &#34;3c9a8a02-3d7c-4710-b482-7c8d7b5787f0&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2018/0803/sY9FbDCsf8wki8uIaPiyO5stqYVLOA8fIQgx6qH4.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;MyBatis&#34;,
+          &#34;id&#34;: &#34;00e59469-936a-4ad9-a002-0eb65ab11add&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0108/8iXbeIeTPNpnjmhZxulrRSYZyZHiZ9t0TqQYBCDB.jpg&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Docker&#34;,
+          &#34;id&#34;: &#34;21a121e4-95ab-4750-8ea8-0ec6faae411e&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2017/12/15/Dw1JyxUrYZxuEaK70y91.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Ajax&#34;,
+          &#34;id&#34;: &#34;47e116d3-9558-4c9c-b634-a71d3180ed32&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0904/SdQ3LQpZBQdOTZOL60uOLmjsS4A7CXHfpRQJOoW6.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;MySQL&#34;,
+          &#34;id&#34;: &#34;61dc95ba-08b3-4caa-8cc9-841b97bb374b&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0830/t5N7UZa2NS73DLYjF4udEx9J1g6Nw0oJjahO6PiI.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;Oracle&#34;,
+          &#34;id&#34;: &#34;68434820-dbb2-4bde-8073-335054a33cef&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0830/0RxunP5eVKYhAjirZoWoAIWEUOIC39NRnsqBv3t4.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;CSS3&#34;,
+          &#34;id&#34;: &#34;85290436-98da-44f8-8417-f7f47968cf04&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0904/aFSZbF63jl3nf406p1qT8KObbDPpTo57oWDtpbCQ.png&#34;
+        },
+        {
+          &#34;name&#34;: &#34;SpringMVC&#34;,
+          &#34;id&#34;: &#34;a808f7fc-79ea-47c1-8662-736cf520cf55&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2018/0910/aCBCxoVFf745KODfDFInhMvanjSpIMONqAEOEv6c.jpg&#34;
+        },
+        {
+          &#34;name&#34;: &#34;HTML5&#34;,
+          &#34;id&#34;: &#34;91072bf5-9699-492a-a473-e0b66c9aacc6&#34;,
+          &#34;score&#34;: null,
+          &#34;logo&#34;: &#34;https://q2.cdn.prodegree.com/stacks/2019/0904/8mjVYtMbcYMZ4TtK2VAQfW1qUZ0XiogfpY9Hlb3A.png&#34;
+        }
+      ],
+      &#34;name&#34;: &#34;java&#34;,
+      &#34;educationName&#34;: null,
+      &#34;educationLogo&#34;: null
+    }
+  ],
+  &#34;totalPages&#34;: 2,
+  &#34;last&#34;: false,
+  &#34;totalElements&#34;: 15,
+  &#34;size&#34;: 12,
+  &#34;numberOfElements&#34;: 12,
+  &#34;sort&#34;: {
+    &#34;unsorted&#34;: false,
+    &#34;sorted&#34;: true,
+    &#34;empty&#34;: false
+  },
+  &#34;first&#34;: true,
+  &#34;pageable&#34;: {
+    &#34;pageSize&#34;: 12,
+    &#34;unpaged&#34;: false,
+    &#34;paged&#34;: true,
+    &#34;offset&#34;: 0,
+    &#34;sort&#34;: {
+      &#34;unsorted&#34;: false,
+      &#34;sorted&#34;: true,
+      &#34;empty&#34;: false
+    },
+    &#34;pageNumber&#34;: 0
+  },
+  &#34;empty&#34;: false
+}</pre>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>status_code</th>
+                        <td>
+                          
+                            200
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>cookies</th>
+                        <td>
+                          
+                            {}
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>reason</th>
+                        <td>
+                          
+                            OK
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>headers</th>
+                        <td>
+                          
+                            <pre>{
+  &#34;Content-Encoding&#34;: &#34;gzip&#34;,
+  &#34;Connection&#34;: &#34;keep-alive&#34;,
+  &#34;Date&#34;: &#34;Fri, 15 May 2020 05:04:57 GMT&#34;,
+  &#34;Cache-Control&#34;: &#34;no-cache, no-store, max-age=0, must-revalidate&#34;,
+  &#34;X-XSS-Protection&#34;: &#34;1; mode=block&#34;,
+  &#34;Content-Type&#34;: &#34;application/json;charset=UTF-8&#34;,
+  &#34;Expires&#34;: &#34;0&#34;,
+  &#34;Server&#34;: &#34;nginx/1.16.1&#34;,
+  &#34;Feature-Policy&#34;: &#34;geolocation &#39;none&#39;; midi &#39;none&#39;; sync-xhr &#39;none&#39;; microphone &#39;none&#39;; camera &#39;none&#39;; magnetometer &#39;none&#39;; gyroscope &#39;none&#39;; speaker &#39;none&#39;; fullscreen &#39;self&#39;; payment &#39;none&#39;&#34;,
+  &#34;Pragma&#34;: &#34;no-cache&#34;,
+  &#34;Referrer-Policy&#34;: &#34;strict-origin-when-cross-origin&#34;,
+  &#34;Transfer-Encoding&#34;: &#34;chunked&#34;,
+  &#34;Content-Security-Policy&#34;: &#34;default-src &#39;self&#39;; frame-src &#39;self&#39; data:; script-src &#39;self&#39; &#39;unsafe-inline&#39; &#39;unsafe-eval&#39; https://storage.googleapis.com; style-src &#39;self&#39; &#39;unsafe-inline&#39;; img-src &#39;self&#39; data:; font-src &#39;self&#39; data:&#34;,
+  &#34;X-Content-Type-Options&#34;: &#34;nosniff&#34;,
+  &#34;X-Frame-Options&#34;: &#34;DENY&#34;
+}</pre>
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>encoding</th>
+                        <td>
+                          
+                            UTF-8
+                          
+                        </td>
+                      </tr>
+                    
+                  </table>
+              </div>
+              
+
+              <h3>Validators:</h3>
+                <div style="overflow: auto">
+                
+                
+                <table>
+                    <tr>
+                      <th>check</th>
+                      <th>comparator</th>
+                      <th>expect value</th>
+                      <th>actual value</th>
+                    </tr>
+                    
+                    <tr>
+                      
+                      <td class="passed">
+                      
+                        status_code
+                      </td>
+                      <td>equals</td>
+                      <td>200</td>
+                      <td>200</td>
+                    </tr>
+                    
+                </table>
+                
+
+                
+                
+              </div>
+
+              <h3>Statistics:</h3>
+              <div style="overflow: auto">
+                <table>
+                  <tr>
+                      <th>content_size(bytes)</th>
+                      <td>15938</td>
+                    </tr>
+                  <tr>
+                    <th>response_time(ms)</th>
+                    <td>1780.58</td>
+                  </tr>
+                  <tr>
+                    <th>elapsed(ms)</th>
+                    <td>775.68</td>
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        
+
+        
+
+      </td>
+    </tr>
+  
+  </table>
+  
+</body>

@@ -1,0 +1,22 @@
+name: get thing list api
+base_url: ${ENV(baseurl)}
+variables:
+    token: ${ENV(token)}
+    size: 12
+    name: "data"
+    page: 0
+request:
+    url: /api/courses/search
+    method: GET
+    headers:
+        Content-Type: "application/json"
+        accept: "*/*"
+        Authorization: $token
+    params:
+        size: $size
+        name: $name
+        page: $page
+validate:
+    - eq: ["status_code", 200]
+    # - eq: ["content.code", "0"]
+    # - eq: ["content.data.total_count", 1]

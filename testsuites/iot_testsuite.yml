@@ -1,0 +1,33 @@
+
+config:
+    name: "device testsuite"
+    variables:
+        device_sn: "XYZ"
+    base_url: ${ENV(baseurl)}
+
+testcases:
+
+
+-
+    name: call basic thing testcases
+    testcase: testcases/thing_basic_testcase.yml
+    variables:
+        device_sn: $device_sn
+
+-
+    name: call basic single device testcases
+    testcase: testcases/device_basic_single_testcase.yml
+    variables:
+        device_sn: $device_sn
+
+-
+    name: call basic multi device testcases
+    testcase: testcases/device_basic_multi_testcase.yml
+    variables:
+        device_sn: $device_sn
+
+-
+    name: call basic device-group testcases
+    testcase: testcases/device_basic_group_testcase.yml
+    variables:
+        device_sn: $device_sn

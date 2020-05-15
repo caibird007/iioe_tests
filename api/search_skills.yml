@@ -1,0 +1,22 @@
+name: search skills  api
+base_url: ${ENV(baseurl)}
+variables:
+    token: ${ENV(token)}
+    size: 12
+    keyword: "java"
+    page: 0
+request:
+    url: /api/skill-stacks/search
+    method: GET
+    headers:
+        Content-Type: "application/json"
+        accept: "*/*"
+        Authorization: $token
+    params:
+        size: $size
+        keyword: $keyword
+        page: $page
+validate:
+    - eq: ["status_code", 200]
+    # - eq: ["content.code", "0"]
+    # - eq: ["content.data.total_count", 1]

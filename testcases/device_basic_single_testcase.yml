@@ -1,0 +1,137 @@
+
+config:
+    name: "single device testcase"
+    variables:
+        device_sn: "ABC"
+        token: ${ENV(token)}
+        end_type: 1
+        edge_type: 2
+        edge_device_name: "edge_device_httpruner"
+        end_device_name: "end_device_httprunner"
+    output:
+        - edge_data
+        - end_data
+
+
+
+teststeps:
+-
+    name: setup up for thing models
+    testcase: testcases/setup_thing_ids.yml
+    extract :
+        - created_edge_thing_id
+        - created_end_thing_id
+
+
+-
+    name: search edge device 
+    api: api/device_list.yml
+    variables:
+        device_type: $edge_type
+        name: $edge_device_name
+    extract:
+        edge_device_list_data: content.data.data
+    validate:
+        - eq: ["status_code", 200]
+    "teardown_hooks": [
+        "${sleep(0.2)}"
+    ]
+
+
+-
+    name: search end device 
+    api: api/device_list.yml
+    variables:
+        device_type: $end_type
+        name: $end_device_name
+    extract:
+        end_devce_list_data: content.data.data
+    validate:
+        - eq: ["status_code", 200]
+    "teardown_hooks": [
+        "${sleep(0.2)}"
+    ]
+
+
+-
+    name: delete specified devices if existed
+    api: api/device_delete.yml
+    variables:
+        edge_device_id: ${get_device_id($edge_device_list_data)}
+        end_device_id: ${get_device_id($end_devce_list_data)}
+        device_ids: ${join_multi_ids($edge_device_id,$end_device_id)}
+    validate:
+        - eq: ["status_code", 200]
+    "teardown_hooks": [
+        "${sleep(0.2)}"
+    ]
+
+
+-
+    name: create one end device
+    api: api/device_create.yml
+    skipIF: ${is_device_existed($end_devce_list_data)}
+    variables:
+        count: 1
+        description: $end_device_name
+        name: $end_device_name
+        thing: $created_end_thing_id
+    extract :
+        end_data: content.data
+    validate:
+        - eq: ["status_code", 200]
+    "teardown_hooks": [
+        "${sleep(0.2)}"
+    ]
+
+-
+    name: create one edge device
+    api: api/device_create.yml
+    skipIF: ${is_device_existed($edge_device_list_data)}
+    variables:
+        count: 1
+        description: $edge_device_name
+        name: $edge_device_name
+        thing: $created_edge_thing_id
+
+    extract :
+        edge_data: content.data
+    validate:
+        - eq: ["status_code", 200]
+    "teardown_hooks": [
+        "${sleep(0.2)}"
+    ]
+
+
+-
+    name: search edge device again
+    api: api/device_list.yml
+    variables:
+        device_type: $edge_type
+        name: $edge_device_name
+    extract:
+        edge_device_list_data: content.data.data
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["${get_device_count($edge_device_list_data)}", 1]
+    "teardown_hooks": [
+        "${sleep(0.2)}"
+    ]
+
+
+-
+    name: search end device again
+    api: api/device_list.yml
+    variables:
+        device_type: $end_type
+        name: $end_device_name
+    extract:
+        end_device_list_data: content.data.data
+    validate:
+        - eq: ["status_code", 200]
+        - eq: [ "${get_device_count($end_device_list_data)}", 1 ]
+    "teardown_hooks": [
+        "${sleep(0.2)}"
+    ]
+
+
