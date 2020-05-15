@@ -1,0 +1,20 @@
+name: search news list api
+base_url: ${ENV(baseurl)}
+variables:
+    token: ${ENV(token)}
+    size: 12
+    title: "news"
+    page: 0
+request:
+    url: /api/news
+    method: GET
+    headers:
+        Content-Type: "application/json"
+        accept: "*/*"
+        Authorization: $token
+    params:
+        size: $size
+        page: $page
+        title: $title
+validate:
+    - eq: ["status_code", 200]
