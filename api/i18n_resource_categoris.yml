@@ -1,0 +1,16 @@
+name: /api/i18n/resource_categories
+base_url: ${ENV(baseurl)}
+variables:
+    token: ${ENV(token)}
+request:
+    url: /api/i18n/resource_categories
+    method: GET
+    headers:
+        Content-Type: "application/json"
+        accept: "*/*"
+        Authorization: $token
+validate:
+    - eq: ["status_code", 200]
+    - eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8

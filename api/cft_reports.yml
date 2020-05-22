@@ -1,0 +1,22 @@
+name: /api/cft/reports/aspects
+base_url: ${ENV(baseurl)}
+variables:
+    token: ${ENV(token)}
+request:
+    url: /api/cft/reports/aspects
+    method: GET
+    headers:
+        Content-Type: "application/json"
+        accept: "*/*"
+        Authorization: $token
+validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.progress
+      - NOT_STARTED
+

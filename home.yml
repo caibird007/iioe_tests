@@ -1,0 +1,323 @@
+config:
+    name: testcase description
+    variables: {}
+teststeps:
+-   name: /api/courses/category-list
+    request:
+        headers:
+            Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJhdXRoIjoiUk9MRV9VU0VSIiwidXNlcklkIjoiMTQ3M2IzYmItOWRjZS00NjUxLWJlYzgtMzRhOTU0NjUxNTkwIiwic3ViIjoiMzA2ODA3Mjc1QHFxLmNvbSIsImV4cCI6MTU5MDAyMjk1Nn0.LJBnES5j0M5eyL0QYUbRdHymsjocZgeUV7YQAO8buCPrV2Rr-yna3NggTRoNhPCG_x2C3wgS3OgJ0NlPVWAvUQ
+            Sec-Fetch-Dest: empty
+            Sec-Fetch-Mode: cors
+            Sec-Fetch-Site: same-origin
+            User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36
+        method: GET
+        url: https://iioe.ichei.org/api/courses/category-list
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+-   name: /api/educations
+    request:
+        headers:
+            Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJhdXRoIjoiUk9MRV9VU0VSIiwidXNlcklkIjoiMTQ3M2IzYmItOWRjZS00NjUxLWJlYzgtMzRhOTU0NjUxNTkwIiwic3ViIjoiMzA2ODA3Mjc1QHFxLmNvbSIsImV4cCI6MTU5MDAyMjk1Nn0.LJBnES5j0M5eyL0QYUbRdHymsjocZgeUV7YQAO8buCPrV2Rr-yna3NggTRoNhPCG_x2C3wgS3OgJ0NlPVWAvUQ
+            Sec-Fetch-Dest: empty
+            Sec-Fetch-Mode: cors
+            Sec-Fetch-Site: same-origin
+            User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36
+        method: GET
+        params:
+            type: COLLEGE
+        url: https://iioe.ichei.org/api/educations
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.last
+        - false
+    -   eq:
+        - content.first
+        - true
+    -   eq:
+        - content.number
+        - 0
+    -   eq:
+        - content.totalElements
+        - 18
+    -   eq:
+        - content.numberOfElements
+        - 10
+    -   eq:
+        - content.totalPages
+        - 2
+    -   eq:
+        - content.empty
+        - false
+    -   eq:
+        - content.size
+        - 10
+-   name: /api/educations
+    request:
+        headers:
+            Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJhdXRoIjoiUk9MRV9VU0VSIiwidXNlcklkIjoiMTQ3M2IzYmItOWRjZS00NjUxLWJlYzgtMzRhOTU0NjUxNTkwIiwic3ViIjoiMzA2ODA3Mjc1QHFxLmNvbSIsImV4cCI6MTU5MDAyMjk1Nn0.LJBnES5j0M5eyL0QYUbRdHymsjocZgeUV7YQAO8buCPrV2Rr-yna3NggTRoNhPCG_x2C3wgS3OgJ0NlPVWAvUQ
+            Sec-Fetch-Dest: empty
+            Sec-Fetch-Mode: cors
+            Sec-Fetch-Site: same-origin
+            User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36
+        method: GET
+        params:
+            type: ENTERPRISE
+        url: https://iioe.ichei.org/api/educations
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.last
+        - false
+    -   eq:
+        - content.first
+        - true
+    -   eq:
+        - content.number
+        - 0
+    -   eq:
+        - content.totalElements
+        - 12
+    -   eq:
+        - content.numberOfElements
+        - 10
+    -   eq:
+        - content.totalPages
+        - 2
+    -   eq:
+        - content.empty
+        - false
+    -   eq:
+        - content.size
+        - 10
+-   name: /api/account
+    request:
+        headers:
+            Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJhdXRoIjoiUk9MRV9VU0VSIiwidXNlcklkIjoiMTQ3M2IzYmItOWRjZS00NjUxLWJlYzgtMzRhOTU0NjUxNTkwIiwic3ViIjoiMzA2ODA3Mjc1QHFxLmNvbSIsImV4cCI6MTU5MDAyMjk1Nn0.LJBnES5j0M5eyL0QYUbRdHymsjocZgeUV7YQAO8buCPrV2Rr-yna3NggTRoNhPCG_x2C3wgS3OgJ0NlPVWAvUQ
+            Sec-Fetch-Dest: empty
+            Sec-Fetch-Mode: cors
+            Sec-Fetch-Site: same-origin
+            User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36
+        method: GET
+        url: https://iioe.ichei.org/api/account
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.userId
+        - 1473b3bb-9dce-4651-bec8-34a954651590
+    -   eq:
+        - content.lastLogonTime
+        - 1589941122000
+    -   eq:
+        - content.emailPrivacyState
+        - PRIVACY
+    -   eq:
+        - content.professionCode
+        - ADMINISTRATIVE_STAFF
+    -   eq:
+        - content.headPhoto
+        - https://iioe-prod.obs.ap-southeast-1.myhuaweicloud.com/image/067a649b-9976-44b7-9790-83d97b2823dc.png
+    -   eq:
+        - content.birthday
+        - 2019/05/11
+    -   eq:
+        - content.totalParticipatedAssessmentTools
+        - 3
+    -   eq:
+        - content.identity
+        - 行政管理
+    -   eq:
+        - content.totalParticipatedSkillSets
+        - 2
+    -   eq:
+        - content.researchField
+        - null
+    -   eq:
+        - content.sex
+        - MALE
+    -   eq:
+        - content.profession
+        - 行政管理
+    -   eq:
+        - content.createdDate
+        - 1589127993000
+    -   eq:
+        - content.identityCode
+        - ADMINISTRATIVE_STAFF
+    -   eq:
+        - content.email
+        - '********'
+    -   eq:
+        - content.age
+        - 0
+    -   eq:
+        - content.intro
+        - null
+    -   eq:
+        - content.totalCertifiedSkillItems
+        - 2
+    -   eq:
+        - content.totalJoinedCourses
+        - 2
+-   name: /api/courses/search
+    request:
+        headers:
+            Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJhdXRoIjoiUk9MRV9VU0VSIiwidXNlcklkIjoiMTQ3M2IzYmItOWRjZS00NjUxLWJlYzgtMzRhOTU0NjUxNTkwIiwic3ViIjoiMzA2ODA3Mjc1QHFxLmNvbSIsImV4cCI6MTU5MDAyMjk1Nn0.LJBnES5j0M5eyL0QYUbRdHymsjocZgeUV7YQAO8buCPrV2Rr-yna3NggTRoNhPCG_x2C3wgS3OgJ0NlPVWAvUQ
+            Sec-Fetch-Dest: empty
+            Sec-Fetch-Mode: cors
+            Sec-Fetch-Site: same-origin
+            User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36
+        method: GET
+        params:
+            page: '0'
+            rootCategoryCode: discipline_courses
+            size: '2'
+        url: https://iioe.ichei.org/api/courses/search
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.last
+        - false
+    -   eq:
+        - content.first
+        - true
+    -   eq:
+        - content.number
+        - 0
+    -   eq:
+        - content.totalElements
+        - 49
+    -   eq:
+        - content.numberOfElements
+        - 2
+    -   eq:
+        - content.totalPages
+        - 25
+    -   eq:
+        - content.empty
+        - false
+    -   eq:
+        - content.size
+        - 2
+-   name: /api/courses/search
+    request:
+        headers:
+            Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJhdXRoIjoiUk9MRV9VU0VSIiwidXNlcklkIjoiMTQ3M2IzYmItOWRjZS00NjUxLWJlYzgtMzRhOTU0NjUxNTkwIiwic3ViIjoiMzA2ODA3Mjc1QHFxLmNvbSIsImV4cCI6MTU5MDAyMjk1Nn0.LJBnES5j0M5eyL0QYUbRdHymsjocZgeUV7YQAO8buCPrV2Rr-yna3NggTRoNhPCG_x2C3wgS3OgJ0NlPVWAvUQ
+            Sec-Fetch-Dest: empty
+            Sec-Fetch-Mode: cors
+            Sec-Fetch-Site: same-origin
+            User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36
+        method: GET
+        params:
+            page: '0'
+            rootCategoryCode: tvet-related_courses
+            size: '2'
+        url: https://iioe.ichei.org/api/courses/search
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.last
+        - false
+    -   eq:
+        - content.first
+        - true
+    -   eq:
+        - content.number
+        - 0
+    -   eq:
+        - content.totalElements
+        - 73
+    -   eq:
+        - content.numberOfElements
+        - 2
+    -   eq:
+        - content.totalPages
+        - 37
+    -   eq:
+        - content.empty
+        - false
+    -   eq:
+        - content.size
+        - 2
+-   name: /api/courses/search
+    request:
+        headers:
+            Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJhdXRoIjoiUk9MRV9VU0VSIiwidXNlcklkIjoiMTQ3M2IzYmItOWRjZS00NjUxLWJlYzgtMzRhOTU0NjUxNTkwIiwic3ViIjoiMzA2ODA3Mjc1QHFxLmNvbSIsImV4cCI6MTU5MDAyMjk1Nn0.LJBnES5j0M5eyL0QYUbRdHymsjocZgeUV7YQAO8buCPrV2Rr-yna3NggTRoNhPCG_x2C3wgS3OgJ0NlPVWAvUQ
+            Sec-Fetch-Dest: empty
+            Sec-Fetch-Mode: cors
+            Sec-Fetch-Site: same-origin
+            User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36
+        method: GET
+        params:
+            page: '0'
+            rootCategoryCode: professional_development_courses
+            size: '2'
+        url: https://iioe.ichei.org/api/courses/search
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.last
+        - false
+    -   eq:
+        - content.first
+        - true
+    -   eq:
+        - content.number
+        - 0
+    -   eq:
+        - content.totalElements
+        - 6
+    -   eq:
+        - content.numberOfElements
+        - 2
+    -   eq:
+        - content.totalPages
+        - 3
+    -   eq:
+        - content.empty
+        - false
+    -   eq:
+        - content.size
+        - 2

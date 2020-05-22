@@ -1,16 +1,22 @@
+#查找学科课程，职业教育课程，教师教育课程接口
+#顶部搜索会用到
+#课程中心首会用到
 name: /api/courses/search
 base_url: ${ENV(baseurl)}
 variables:
     token: ${ENV(token)}
     rootCategoryCode: 'discipline_courses' #tvet-related_courses,professional_development_courses
     size: 12
-    name: "data"
+    name: 
     page: 0
+    hot: true
+    lang: "zh-CN"
 request:
     url: /api/courses/search
     method: GET
     headers:
         Content-Type: "application/json"
+        Accept-Language: $lang
         accept: "*/*"
         Authorization: $token
     params:
@@ -18,9 +24,15 @@ request:
         name: $name
         rootCategoryCode: $rootCategoryCode
         page: $page
+        hot: $hot
 validate:
     - eq: ["status_code", 200]
-    - gt: ["content.totalElements",0]
-    - gt: ["content.totalPages",0]
-    # - eq: ["content.code", "0"]
-    # - eq: ["content.data.total_count", 1]
+    - ge: ["content.totalElements",0]
+    - ge: ["content.totalPages",0]
+    - eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    - eq:
+        - content.first
+        - true
+

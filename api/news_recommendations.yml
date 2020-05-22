@@ -1,0 +1,16 @@
+name: /api/news/recommendations
+base_url: ${ENV(baseurl)}
+variables:
+    token: ${ENV(token)}
+    size: 12
+request:
+    url: /api/news/recommendations
+    method: GET
+    headers:
+        Content-Type: "application/json"
+        accept: "*/*"
+        Authorization: $token
+    params:
+        size: $size
+validate:
+    - eq: ["status_code", 200]

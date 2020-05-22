@@ -1,0 +1,36 @@
+config:
+    name: "测试首页所有可点击部分的接口测试"
+    variables:
+        token: ${ENV(token)}
+    "setup_hooks": [
+        "${sleep(1)}"
+    ]
+    "teardown_hooks": [
+        "${sleep(1)}"
+    ]
+    #export:
+    #    - created_edge_thing_id
+    #    - created_end_thing_id
+
+teststeps:
+#-
+#    name: test search skills
+#    api: api/search_skills.yml
+#    variables:
+#        limit: 10
+#        size: 20
+#    validate:
+#        - eq: ["status_code", 200]
+
+-
+    #亚非共同发起的高等教育机构列表
+    name: "亚非共同发起的高等教育机构列表" 
+    api: api/education.yml
+    variables:
+        rootCategoryCode: 'discipline_courses'
+        type: 'COLLEGE'
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.empty", false]
+        - ge: ["content.numberOfElements", 4]
+

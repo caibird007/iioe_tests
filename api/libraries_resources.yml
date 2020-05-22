@@ -1,0 +1,33 @@
+name: /api/libraries/resources
+base_url: ${ENV(baseurl)}
+variables:
+    token: ${ENV(token)}
+    size: 4
+    categoryCode: ''
+    page: '0'
+    size: '20'
+    year: ''
+request:
+    url: /api/libraries/resources
+    method: GET
+    headers:
+        Content-Type: "application/json"
+        accept: "*/*"
+        Authorization: $token
+    params:
+        size: $size
+        page: $page
+        categoryCode: $categoryCode
+        size: $size
+        year: $year
+validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - ge:
+      - content.totalPages
+      - 1
+

@@ -1,0 +1,67 @@
+config:
+    name: testcase description
+    variables: {}
+teststeps:
+-   name: /api/courses/search
+    request:
+        headers:
+            Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJhdXRoIjoiUk9MRV9VU0VSIiwidXNlcklkIjoiM2Y2ZTk0ODEtOTlmYS00Yzg1LWFjNjktYWUxYzIyNjUxMGIwIiwic3ViIjoiMzA2ODA3Mjc1QHFxLmNvbSIsImV4cCI6MTU4OTU5MTc2OH0.Tq8jmZu2YcpkDEyYdv-0RVYZkpJF8ZBMAVHEaoQvTN008yKhZDr6ZnTEbmvSD1z-m1alDFB8tUQ9ukXMsGwYJg
+        method: GET
+        params:
+            page: '0'
+            rootCategoryCode: discipline_courses
+            size: '2'
+        url: http://iioe-uat.ichei.org/api/courses/search
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - content.totalElements
+        - 28
+    -   eq:
+        - content.totalPages
+        - 14
+-   name: /api/courses/search
+    request:
+        headers:
+            Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJhdXRoIjoiUk9MRV9VU0VSIiwidXNlcklkIjoiM2Y2ZTk0ODEtOTlmYS00Yzg1LWFjNjktYWUxYzIyNjUxMGIwIiwic3ViIjoiMzA2ODA3Mjc1QHFxLmNvbSIsImV4cCI6MTU4OTU5MTc2OH0.Tq8jmZu2YcpkDEyYdv-0RVYZkpJF8ZBMAVHEaoQvTN008yKhZDr6ZnTEbmvSD1z-m1alDFB8tUQ9ukXMsGwYJg
+        method: GET
+        params:
+            page: '0'
+            rootCategoryCode: tvet-related_courses
+            size: '2'
+        url: http://iioe-uat.ichei.org/api/courses/search
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - content.totalElements
+        - 95
+    -   eq:
+        - content.totalPages
+        - 48
+-   name: /api/courses/search
+    request:
+        headers:
+            Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJhdXRoIjoiUk9MRV9VU0VSIiwidXNlcklkIjoiM2Y2ZTk0ODEtOTlmYS00Yzg1LWFjNjktYWUxYzIyNjUxMGIwIiwic3ViIjoiMzA2ODA3Mjc1QHFxLmNvbSIsImV4cCI6MTU4OTU5MTc2OH0.Tq8jmZu2YcpkDEyYdv-0RVYZkpJF8ZBMAVHEaoQvTN008yKhZDr6ZnTEbmvSD1z-m1alDFB8tUQ9ukXMsGwYJg
+        method: GET
+        params:
+            page: '0'
+            rootCategoryCode: professional_development_courses
+            size: '2'
+        url: http://iioe-uat.ichei.org/api/courses/search
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.totalElements
+        - 5
+    -   eq:
+        - content.totalPages
+        - 3

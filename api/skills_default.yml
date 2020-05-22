@@ -1,0 +1,16 @@
+name: /api/skill-stacks/default/all
+base_url: ${ENV(baseurl)}
+variables:
+    token: ${ENV(token)}
+request:
+    url: /api/skill-stacks/default/all
+    method: GET
+    headers:
+        Content-Type: "application/json"
+        accept: "*/*"
+        Authorization: $token
+validate:
+    - eq: ["status_code", 200]
+    - eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8

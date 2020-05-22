@@ -1,23 +1,13 @@
-name: /api/educations
+name: /api/subject-courses/huawei
 base_url: ${ENV(baseurl)}
 variables:
     token: ${ENV(token)}
-    type: COLLEGE #COLLEGE,ENTERPRISE 
-    page: '0'
-    size: '100'
-    lang: 'zh-CN' #en-US,fr-FR
 request:
-    url: /api/educations
+    url: /api/subject-courses/huawei
     headers:
         Authorization: $token
         User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:76.0) Gecko/20100101 Firefox/76.0
-        Accept-Language: $lang
     method: GET
-    params:
-        type: $type
-        page: $page
-        size: $size
-
 validate:
     - eq:
         - status_code
@@ -25,10 +15,5 @@ validate:
     - eq:
         - headers.Content-Type
         - application/json;charset=UTF-8
-    - ge:
-        - content.totalPages
-        - 1
-    - eq:
-        - content.first
-        - true
+
 

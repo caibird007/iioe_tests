@@ -2,14 +2,26 @@ name: /api/courses/category-list
 base_url: ${ENV(baseurl)}
 variables:
     token: ${ENV(token)}
+    rootCategoryCode: 'discipline_courses' #tvet-related_courses,professional_development_courses
+    page: 0
+    size: 2
 request:
     url: /api/courses/category-list
     headers:
         Authorization: $token
         User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:76.0) Gecko/20100101 Firefox/76.0
     method: GET
+    params:
+        rootCategoryCode: $rootCategoryCode
+        page: $page
+        size: $size
+       
 validate:
     - eq:
         - status_code
         - 200
+    - eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+
 
