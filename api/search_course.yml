@@ -5,11 +5,13 @@ name: /api/courses/search
 base_url: ${ENV(baseurl)}
 variables:
     token: ${ENV(token)}
-    rootCategoryCode: 'discipline_courses' #tvet-related_courses,professional_development_courses
+    rootCategoryCode: ''
+    #rootCategoryCode: 'discipline_courses' #tvet-related_courses,professional_development_courses
     size: 12
     name: 
     page: 0
     hot: true
+    languageCode: 'cn' #cn,en,fr
     lang: "zh-CN"
 request:
     url: /api/courses/search
@@ -23,6 +25,7 @@ request:
         size: $size
         name: $name
         rootCategoryCode: $rootCategoryCode
+        languageCode: $languageCode
         page: $page
         hot: $hot
 validate:

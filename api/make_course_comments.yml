@@ -1,0 +1,22 @@
+#课程详情页
+name: /api/courses/395c1545-548a-43ed-b169-1c7eb08025ce/comments
+base_url: ${ENV(baseurl)}
+variables:
+    token: ${ENV(token)}
+    languageCode: 'cn' #cn,en,fr
+    lang: "zh-CN"
+    content: 'test httprunner'
+    course_id: 395c1545-548a-43ed-b169-1c7eb08025ce
+request:
+    url: /api/courses/$course_id/comments
+    method: POST
+    headers:
+        Content-Type: "application/json"
+        Accept-Language: $lang
+        accept: "*/*"
+        Authorization: $token
+    json:
+        content: $content
+validate:
+    - eq: ["status_code", 200]
+

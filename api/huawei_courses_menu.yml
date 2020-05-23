@@ -2,11 +2,12 @@ name: /api/subject-courses/huawei
 base_url: ${ENV(baseurl)}
 variables:
     token: ${ENV(token)}
+    lang: zh-CN
 request:
     url: /api/subject-courses/huawei
     headers:
         Authorization: $token
-        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:76.0) Gecko/20100101 Firefox/76.0
+        Accept-Language: $lang
     method: GET
 validate:
     - eq:

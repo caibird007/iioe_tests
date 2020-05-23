@@ -1,0 +1,283 @@
+config:
+    name: "测试课程页所有可点击部分的接口测试"
+    variables:
+        token: ${ENV(token)}
+    "setup_hooks": [
+        "${sleep(1)}"
+    ]
+    "teardown_hooks": [
+        "${sleep(1)}"
+    ]
+    #export:
+    #    - created_edge_thing_id
+    #    - created_end_thing_id
+
+teststeps:
+
+-
+    name: "课程页:页面顶部类目列表(中文)" 
+    api: api/category_list.yml
+    variables:
+        page: 0
+        size: 2
+        lang: 'zh-CN'
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.0.code", "discipline_courses"]
+        - eq: ["content.1.code", "tvet-related_courses"]
+        - eq: ["content.2.code", "professional_development_courses"]
+        - eq: ["content.0.name", "学科课程"]
+        - eq: ["content.1.name", "职业教育课程"]
+        - eq: ["content.2.name", "教师教育课程"]
+
+-
+    name: "课程页:页面顶部类目列表(英文)" 
+    api: api/category_list.yml
+    variables:
+        page: 0
+        size: 2
+        lang: 'en-US'
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.0.code", "discipline_courses"]
+        - eq: ["content.1.code", "tvet-related_courses"]
+        - eq: ["content.2.code", "professional_development_courses"]
+        - eq: ["content.0.name", "Discipline Courses"]
+        - eq: ["content.1.name", "TVET Courses"]
+        - eq: ["content.2.name", "Teacher Professional Development Courses"]
+
+-
+    name: "课程页:页面顶部类目列表(法文)" 
+    api: api/category_list.yml
+    variables:
+        page: 0
+        size: 2
+        lang: 'fr-FR'
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.0.code", "discipline_courses"]
+        - eq: ["content.1.code", "tvet-related_courses"]
+        - eq: ["content.2.code", "professional_development_courses"]
+        - eq: ["content.0.name", "Cours thématiques"]
+        - eq: ["content.1.name", "Cours d'EFTP"]
+        - eq: ["content.2.name", "Cours de développement professionnel pour les enseignants"]
+
+
+-
+    name: "课程页:推荐课程(中文)" 
+    api: api/search_course.yml
+    variables:
+        rootCategoryCode: ''
+        page: 0
+        size: 20
+        hot: true
+    extract:
+        first_ele_modfied_date: content.content.0.lastModifiedDate
+        second_ele_modfied_date: content.content.1.lastModifiedDate
+        third_ele_modfied_date: content.content.2.lastModifiedDate
+        forth_ele_modfied_date: content.content.3.lastModifiedDate
+        courses: content.content
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.empty", false]
+        - ge: ["content.numberOfElements", 4]
+        - eq: ["${is_courses_open($courses)}", True]
+        #- ge: ["${date2timestamp($first_ele_modfied_date)}", "${date2timestamp($second_ele_modfied_date)}"]
+        #- ge: ["${date2timestamp($second_ele_modfied_date)}", "${date2timestamp($third_ele_modfied_date)}"]
+        #- ge: ["${date2timestamp($third_ele_modfied_date)}", "${date2timestamp($forth_ele_modfied_date)}"]
+        - eq: ["content.content.0.status", "OPEN"]
+        - eq: ["content.content.1.status", "OPEN"]
+        - eq: ["content.content.2.status", "OPEN"]
+        - eq: ["content.content.3.status", "OPEN"]
+
+-
+    name: "课程页:推荐课程(英文)" 
+    api: api/search_course.yml
+    variables:
+        rootCategoryCode: ''
+        page: 0
+        size: 20
+        lang: 'en-US'
+        hot: true
+    extract:
+        first_ele_modfied_date: content.content.0.lastModifiedDate
+        second_ele_modfied_date: content.content.1.lastModifiedDate
+        third_ele_modfied_date: content.content.2.lastModifiedDate
+        forth_ele_modfied_date: content.content.3.lastModifiedDate
+        courses: content.content
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.empty", false]
+        - ge: ["content.numberOfElements", 4]
+        - eq: ["${is_courses_open($courses)}", True]
+        #- ge: ["${date2timestamp($first_ele_modfied_date)}", "${date2timestamp($second_ele_modfied_date)}"]
+        #- ge: ["${date2timestamp($second_ele_modfied_date)}", "${date2timestamp($third_ele_modfied_date)}"]
+        #- ge: ["${date2timestamp($third_ele_modfied_date)}", "${date2timestamp($forth_ele_modfied_date)}"]
+        - eq: ["content.content.0.status", "OPEN"]
+        - eq: ["content.content.1.status", "OPEN"]
+        - eq: ["content.content.2.status", "OPEN"]
+        - eq: ["content.content.3.status", "OPEN"]
+-
+    name: "课程页:推荐课程(法文)" 
+    api: api/search_course.yml
+    variables:
+        rootCategoryCode: ''
+        page: 0
+        size: 20
+        hot: true
+        lang: 'fr-FR'
+    extract:
+        first_ele_modfied_date: content.content.0.lastModifiedDate
+        second_ele_modfied_date: content.content.1.lastModifiedDate
+        third_ele_modfied_date: content.content.2.lastModifiedDate
+        forth_ele_modfied_date: content.content.3.lastModifiedDate
+        courses: content.content
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.empty", false]
+        - ge: ["content.numberOfElements", 4]
+        - eq: ["${is_courses_open($courses)}", True]
+        #- ge: ["${date2timestamp($first_ele_modfied_date)}", "${date2timestamp($second_ele_modfied_date)}"]
+        #- ge: ["${date2timestamp($second_ele_modfied_date)}", "${date2timestamp($third_ele_modfied_date)}"]
+        #- ge: ["${date2timestamp($third_ele_modfied_date)}", "${date2timestamp($forth_ele_modfied_date)}"]
+        - eq: ["content.content.0.status", "OPEN"]
+        - eq: ["content.content.1.status", "OPEN"]
+        - eq: ["content.content.2.status", "OPEN"]
+        - eq: ["content.content.3.status", "OPEN"]
+
+-
+    name: "课程页:合作课程华为课程区(中文)" 
+    api: api/huawei_courses_menu.yml
+    variables:
+        lang: 'zh-CN'
+    extract:
+        courses: content
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["${get_list_len($courses)}", 21]
+        #- eq: ["${is_courses_cn($courses)}", True]
+
+-
+    name: "课程页:合作课程华为课程区(英文)" 
+    api: api/huawei_courses_menu.yml
+    variables:
+        lang: 'en-US'
+    extract:
+        courses: content
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["${get_list_len($courses)}", 21]
+        - eq: ["${is_courses_en($courses)}", True]
+
+-
+    name: "课程页:合作课程华为选课程区(法文)" 
+    api: api/huawei_courses_menu.yml
+    variables:
+        lang: 'fr-FR'
+    extract:
+        courses: content
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["${get_list_len($courses)}", 21]
+        #- eq: ["${is_courses_fr($courses)}", True]
+
+
+-
+    name: "课程页:合作课程优必选课程区(中文)" 
+    api: api/yanshee_courses_menu.yml
+    variables:
+        lang: 'zh-CN'
+    extract:
+        courses: content
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["${get_list_len($courses)}", 9]
+
+-
+    name: "课程页:合作课程优必选课程区(英文)" 
+    api: api/yanshee_courses_menu.yml
+    variables:
+        lang: 'en-US'
+    extract:
+        courses: content
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["${get_list_len($courses)}", 7]
+
+-
+    name: "课程页:合作课程优必选课程区(法文)" 
+    api: api/yanshee_courses_menu.yml
+    variables:
+        lang: 'fr-FR'
+    extract:
+        courses: content
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["${get_list_len($courses)}", 0]
+
+
+
+-
+    name: "课程页:所有课程筛选中文课程(中文)" 
+    api: api/search_course.yml
+    variables:
+        rootCategoryCode: ''
+        page: 0
+        size: 32
+        hot: false
+        languageCode: 'cn'
+    extract:
+        courses: content.content
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.empty", false]
+        - ge: ["content.numberOfElements", 4]
+        - eq: ["${is_courses_open($courses)}", True]
+        - eq: ["${is_courses_cn($courses)}", True]
+        #- ge: ["${date2timestamp($first_ele_modfied_date)}", "${date2timestamp($second_ele_modfied_date)}"]
+        #- ge: ["${date2timestamp($second_ele_modfied_date)}", "${date2timestamp($third_ele_modfied_date)}"]
+        #- ge: ["${date2timestamp($third_ele_modfied_date)}", "${date2timestamp($forth_ele_modfied_date)}"]
+-
+    name: "课程页:所有课程筛选中文课程(英文)" 
+    api: api/search_course.yml
+    variables:
+        rootCategoryCode: ''
+        page: 0
+        size: 32
+        lang: 'en-US'
+        hot: false
+        languageCode: 'en'
+    extract:
+        courses: content.content
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.empty", false]
+        - ge: ["content.numberOfElements", 4]
+        - eq: ["${is_courses_open($courses)}", True]
+        - eq: ["${is_courses_en($courses)}", True]
+        #- ge: ["${date2timestamp($first_ele_modfied_date)}", "${date2timestamp($second_ele_modfied_date)}"]
+        #- ge: ["${date2timestamp($second_ele_modfied_date)}", "${date2timestamp($third_ele_modfied_date)}"]
+        #- ge: ["${date2timestamp($third_ele_modfied_date)}", "${date2timestamp($forth_ele_modfied_date)}"]
+-
+    name: "课程页:所有课程筛选中文课程(法文)" 
+    api: api/search_course.yml
+    variables:
+        rootCategoryCode: ''
+        page: 0
+        size: 32
+        lang: 'en-US'
+        hot: false
+        lang: 'fr-FR'
+        languageCode: 'fr'
+    extract:
+        courses: content.content
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.empty", false]
+        - ge: ["content.numberOfElements", 1]
+        - eq: ["${is_courses_open($courses)}", True]
+        - eq: ["${is_courses_fr($courses)}", True]
+        #- ge: ["${date2timestamp($first_ele_modfied_date)}", "${date2timestamp($second_ele_modfied_date)}"]
+        #- ge: ["${date2timestamp($second_ele_modfied_date)}", "${date2timestamp($third_ele_modfied_date)}"]
+        #- ge: ["${date2timestamp($third_ele_modfied_date)}", "${date2timestamp($forth_ele_modfied_date)}"]
+

@@ -3,10 +3,12 @@ base_url: ${ENV(baseurl)}
 variables:
     token: ${ENV(token)}
     type: COLLEGE #COLLEGE,ENTERPRISE 
+    lang: "zh-CN"
 request:
     url: /api/subject-courses/menu/yanshee
     headers:
         Authorization: $token
+        Accept-Language: $lang
         User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:76.0) Gecko/20100101 Firefox/76.0
     method: GET
 validate:

@@ -1,0 +1,108 @@
+config:
+    name: "测试课程详情页所有可点击部分的接口"
+    variables:
+        token: ${ENV(token)}
+        name_cn: '大数据课程体系'
+        name_en: '大数据课程体系'
+        name_fr: '大数据课程体系'
+        categoryName_cn: 'Data Science'
+        categoryName_en: 'Data Science'
+        categoryName_fr: 'Data Science'
+    "setup_hooks": [
+        "${sleep(1)}"
+    ]
+    "teardown_hooks": [
+        "${sleep(1)}"
+    ]
+    #export:
+    #    - created_edge_thing_id
+    #    - created_end_thing_id
+
+teststeps:
+
+-
+    name: "课程详情验证(中文)" 
+    api: api/courses_details.yml
+    variables:
+        course_id: '395c1545-548a-43ed-b169-1c7eb08025ce'
+        lang: 'zh-CN'
+    extract:
+        courseDetailList: content.courseDetailList
+        courseTeacherList: content.courseTeacherList
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.name", $name_cn]
+        - eq: ["content.status", 'OPEN']
+        - ge: ["${get_list_len(courseDetailList)}", 0]
+        - ge: ["${get_list_len(courseTeacherList)}", 0]
+        - eq: ["content.categoryName", "数据科学"]
+        - eq: ["content.languageCode", "cn"]
+        - eq: ["content.languageName", "中文"]
+
+-
+    name: "课程详情验证(英文)" 
+    api: api/courses_details.yml
+    variables:
+        course_id: '395c1545-548a-43ed-b169-1c7eb08025ce'
+        lang: 'en-US'
+    validate: 
+        - eq: ["status_code", 200]
+        - eq: ["content.name", $name_cn]
+        - eq: ["content.status", 'OPEN']
+        - ge: ["${get_list_len(courseDetailList)}", 0]
+        - ge: ["${get_list_len(courseTeacherList)}", 0]
+        - eq: ["content.categoryName", "Data Science"]
+        - eq: ["content.languageCode", "cn"]
+        - eq: ["content.languageName", "Chinese"]
+
+-
+    name: "课程详情验证(法文)" 
+    api: api/courses_details.yml
+    variables:
+        course_id: '395c1545-548a-43ed-b169-1c7eb08025ce'
+        lang: 'fr-FR'
+    validate: 
+        - eq: ["status_code", 200]
+        - eq: ["content.name", $name_cn]
+        - eq: ["content.status", 'OPEN']
+        - ge: ["${get_list_len(courseDetailList)}", 0]
+        - ge: ["${get_list_len(courseTeacherList)}", 0]
+        - eq: ["content.categoryName", "Data Science"]
+        - eq: ["content.languageCode", "cn"]
+        - eq: ["content.languageName", "chinois"]
+
+-
+    name: "获取课程评论(评论前)"
+    api: api/get_course_comments.yml
+    variables:
+        course_id: '395c1545-548a-43ed-b169-1c7eb08025ce'
+        lang: 'zh-CN'
+    extract:
+        comment_contents_before: content.content
+    validate:
+        - eq: ["status_code", 200]
+
+-
+    name: "评论课程"
+    api: api/make_course_comments.yml
+    variables:
+        course_id: '395c1545-548a-43ed-b169-1c7eb08025ce'
+        lang: 'zh-CN'
+        content: '测试httprunner2'
+    validate:
+        - eq: ["status_code", 200]
+
+-
+    name: "获取课程评论(评论后)"
+    api: api/get_course_comments.yml
+    variables:
+        course_id: '395c1545-548a-43ed-b169-1c7eb08025ce'
+        lang: 'zh-CN'
+        content: '测试httprunner2'
+    extract:
+        comment_contents_after: content.content
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.content.0.content", $content]
+        #- gt: ["${get_list_len($comment_contents_after)}", "${get_list_len($comment_contents_before)}" ]
+

@@ -1,0 +1,24 @@
+#课程详情页
+name: /api/courses/course_id
+base_url: ${ENV(baseurl)}
+variables:
+    token: ${ENV(token)}
+    languageCode: 'cn' #cn,en,fr
+    lang: "zh-CN"
+    course_id: 41462f1f-3300-4fb0-8b98-3b077fd9c2fa
+request:
+    url: /api/courses/$course_id
+    method: GET
+    headers:
+        Content-Type: "application/json"
+        Accept-Language: $lang
+        accept: "*/*"
+        Authorization: $token
+    params:
+        course_id: $course_id
+validate:
+    - eq: ["status_code", 200]
+    - eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+

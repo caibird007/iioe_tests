@@ -13,14 +13,57 @@ config:
     #    - created_end_thing_id
 
 teststeps:
-#-
-#    name: test search skills
-#    api: api/search_skills.yml
-#    variables:
-#        limit: 10
-#        size: 20
-#    validate:
-#        - eq: ["status_code", 200]
+
+-
+    name: "首页:优质在线课程资源类目列表(中文)" 
+    api: api/category_list.yml
+    variables:
+        page: 0
+        size: 2
+        lang: 'zh-CN'
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.0.code", "discipline_courses"]
+        - eq: ["content.1.code", "tvet-related_courses"]
+        - eq: ["content.2.code", "professional_development_courses"]
+        - eq: ["content.0.name", "学科课程"]
+        - eq: ["content.1.name", "职业教育课程"]
+        - eq: ["content.2.name", "教师教育课程"]
+
+-
+    name: "首页:优质在线课程资源类目列表(英文)" 
+    api: api/category_list.yml
+    variables:
+        page: 0
+        size: 2
+        lang: 'en-US'
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.0.code", "discipline_courses"]
+        - eq: ["content.1.code", "tvet-related_courses"]
+        - eq: ["content.2.code", "professional_development_courses"]
+        - eq: ["content.0.name", "Discipline Courses"]
+        - eq: ["content.1.name", "TVET Courses"]
+        - eq: ["content.2.name", "Teacher Professional Development Courses"]
+
+-
+    name: "首页:优质在线课程资源类目列表(法文)" 
+    api: api/category_list.yml
+    variables:
+        page: 0
+        size: 2
+        lang: 'fr-FR'
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.0.code", "discipline_courses"]
+        - eq: ["content.1.code", "tvet-related_courses"]
+        - eq: ["content.2.code", "professional_development_courses"]
+        - eq: ["content.0.name", "Cours thématiques"]
+        - eq: ["content.1.name", "Cours d'EFTP"]
+        - eq: ["content.2.name", "Cours de développement professionnel pour les enseignants"]
+
+
+
 
 -
     name: "首页:优质在线课程资源:学科课程(中文)" 
