@@ -1,0 +1,19 @@
+#获取课程视频接口
+name: /api/courses/course-lessons/cdf6de84-ce56-40f7-ba42-87cd44e14e1d/video-address
+base_url: ${ENV(baseurl)}
+variables:
+    token: ${ENV(token)}
+    languageCode: 'cn' #cn,en,fr
+    lang: "zh-CN"
+    video_id: cdf6de84-ce56-40f7-ba42-87cd44e14e1d
+request:
+    url: /api/courses/course-lessons/${video_id}/video-address
+    method: GET
+    headers:
+        Content-Type: "application/json"
+        Accept-Language: $lang
+        accept: "*/*"
+        Authorization: $token
+validate:
+    - eq: ["status_code", 200]
+

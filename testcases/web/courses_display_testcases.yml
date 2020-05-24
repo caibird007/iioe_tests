@@ -16,7 +16,7 @@ teststeps:
 
 -
     name: "课程页:页面顶部类目列表(中文)" 
-    api: api/category_list.yml
+    api: api/web/category_list.yml
     variables:
         page: 0
         size: 2
@@ -32,7 +32,7 @@ teststeps:
 
 -
     name: "课程页:页面顶部类目列表(英文)" 
-    api: api/category_list.yml
+    api: api/web/category_list.yml
     variables:
         page: 0
         size: 2
@@ -48,7 +48,7 @@ teststeps:
 
 -
     name: "课程页:页面顶部类目列表(法文)" 
-    api: api/category_list.yml
+    api: api/web/category_list.yml
     variables:
         page: 0
         size: 2
@@ -65,7 +65,7 @@ teststeps:
 
 -
     name: "课程页:推荐课程(中文)" 
-    api: api/search_course.yml
+    api: api/web/search_course.yml
     variables:
         rootCategoryCode: ''
         page: 0
@@ -92,7 +92,7 @@ teststeps:
 
 -
     name: "课程页:推荐课程(英文)" 
-    api: api/search_course.yml
+    api: api/web/search_course.yml
     variables:
         rootCategoryCode: ''
         page: 0
@@ -119,7 +119,7 @@ teststeps:
         - eq: ["content.content.3.status", "OPEN"]
 -
     name: "课程页:推荐课程(法文)" 
-    api: api/search_course.yml
+    api: api/web/search_course.yml
     variables:
         rootCategoryCode: ''
         page: 0
@@ -147,7 +147,7 @@ teststeps:
 
 -
     name: "课程页:合作课程华为课程区(中文)" 
-    api: api/huawei_courses_menu.yml
+    api: api/web/huawei_courses_menu.yml
     variables:
         lang: 'zh-CN'
     extract:
@@ -159,7 +159,7 @@ teststeps:
 
 -
     name: "课程页:合作课程华为课程区(英文)" 
-    api: api/huawei_courses_menu.yml
+    api: api/web/huawei_courses_menu.yml
     variables:
         lang: 'en-US'
     extract:
@@ -171,7 +171,7 @@ teststeps:
 
 -
     name: "课程页:合作课程华为选课程区(法文)" 
-    api: api/huawei_courses_menu.yml
+    api: api/web/huawei_courses_menu.yml
     variables:
         lang: 'fr-FR'
     extract:
@@ -184,7 +184,7 @@ teststeps:
 
 -
     name: "课程页:合作课程优必选课程区(中文)" 
-    api: api/yanshee_courses_menu.yml
+    api: api/web/yanshee_courses_menu.yml
     variables:
         lang: 'zh-CN'
     extract:
@@ -195,7 +195,7 @@ teststeps:
 
 -
     name: "课程页:合作课程优必选课程区(英文)" 
-    api: api/yanshee_courses_menu.yml
+    api: api/web/yanshee_courses_menu.yml
     variables:
         lang: 'en-US'
     extract:
@@ -206,7 +206,7 @@ teststeps:
 
 -
     name: "课程页:合作课程优必选课程区(法文)" 
-    api: api/yanshee_courses_menu.yml
+    api: api/web/yanshee_courses_menu.yml
     variables:
         lang: 'fr-FR'
     extract:
@@ -219,7 +219,7 @@ teststeps:
 
 -
     name: "课程页:所有课程筛选中文课程(中文)" 
-    api: api/search_course.yml
+    api: api/web/search_course.yml
     variables:
         rootCategoryCode: ''
         page: 0
@@ -239,7 +239,7 @@ teststeps:
         #- ge: ["${date2timestamp($third_ele_modfied_date)}", "${date2timestamp($forth_ele_modfied_date)}"]
 -
     name: "课程页:所有课程筛选中文课程(英文)" 
-    api: api/search_course.yml
+    api: api/web/search_course.yml
     variables:
         rootCategoryCode: ''
         page: 0
@@ -260,7 +260,7 @@ teststeps:
         #- ge: ["${date2timestamp($third_ele_modfied_date)}", "${date2timestamp($forth_ele_modfied_date)}"]
 -
     name: "课程页:所有课程筛选中文课程(法文)" 
-    api: api/search_course.yml
+    api: api/web/search_course.yml
     variables:
         rootCategoryCode: ''
         page: 0

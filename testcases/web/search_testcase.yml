@@ -15,7 +15,7 @@ config:
 teststeps:
 #-
 #    name: test search skills
-#    api: api/search_skills.yml
+#    api: api/web/web/search_skills.yml
 #    variables:
 #        limit: 10
 #        size: 20
@@ -24,7 +24,7 @@ teststeps:
 
 -
     name: test search hot discipline_courses courses
-    api: api/search_course.yml
+    api: api/web/web/search_course.yml
     variables:
         rootCategoryCode: 'discipline_courses'
         name: "data"
@@ -34,7 +34,7 @@ teststeps:
 
 -
     name: test search tvet-related_courses courses(not hot)
-    api: api/search_course.yml
+    api: api/web/web/search_course.yml
     variables:
         rootCategoryCode: 'discipline_courses'
         name: "data"
@@ -45,7 +45,7 @@ teststeps:
 
 -
     name: test search professional_development_courses courses(not hot)
-    api: api/search_course.yml
+    api: api/web/web/search_course.yml
     variables:
         rootCategoryCode: 'professional_development_courses'
         name: "data"
@@ -57,14 +57,14 @@ teststeps:
 
 -
     name: test search all news
-    api: api/search_news.yml
+    api: api/web/web/search_news.yml
     variables:
         limit: 10
     validate:
         - eq: ["status_code", 200]
 -
     name: test search news named new
-    api: api/search_news.yml
+    api: api/web/web/search_news.yml
     variables:
         title: 'new'
         limit: 10

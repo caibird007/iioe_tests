@@ -1,0 +1,21 @@
+#获取课程章节信息接口
+name: /api/subtitles?courseLessonId=cdf6de84-ce56-40f7-ba42-87cd44e14e1d
+base_url: ${ENV(baseurl)}
+variables:
+    token: ${ENV(token)}
+    languageCode: 'cn' #cn,en,fr
+    lang: "zh-CN"
+    course_lesson_id: cdf6de84-ce56-40f7-ba42-87cd44e14e1d
+request:
+    url: /api/subtitles
+    method: GET
+    headers:
+        Content-Type: "application/json"
+        Accept-Language: $lang
+        accept: "*/*"
+        Authorization: $token
+    params:
+        courseLessonId: $course_lesson_id
+validate:
+    - eq: ["status_code", 200]
+

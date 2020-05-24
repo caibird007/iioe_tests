@@ -16,7 +16,7 @@ teststeps:
 
 -
     name: "首页:优质在线课程资源类目列表(中文)" 
-    api: api/category_list.yml
+    api: api/web/category_list.yml
     variables:
         page: 0
         size: 2
@@ -32,7 +32,7 @@ teststeps:
 
 -
     name: "首页:优质在线课程资源类目列表(英文)" 
-    api: api/category_list.yml
+    api: api/web/category_list.yml
     variables:
         page: 0
         size: 2
@@ -48,7 +48,7 @@ teststeps:
 
 -
     name: "首页:优质在线课程资源类目列表(法文)" 
-    api: api/category_list.yml
+    api: api/web/category_list.yml
     variables:
         page: 0
         size: 2
@@ -67,7 +67,7 @@ teststeps:
 
 -
     name: "首页:优质在线课程资源:学科课程(中文)" 
-    api: api/search_course.yml
+    api: api/web/search_course.yml
     variables:
         rootCategoryCode: 'discipline_courses'
         page: 0
@@ -84,7 +84,7 @@ teststeps:
 
 -
     name: "首页:优质在线课程资源:学科课程(英文)" 
-    api: api/search_course.yml
+    api: api/web/search_course.yml
     variables:
         rootCategoryCode: 'discipline_courses'
         page: 0
@@ -102,7 +102,7 @@ teststeps:
 
 -
     name: "首页:优质在线课程资源:学科课程(法文)" 
-    api: api/search_course.yml
+    api: api/web/search_course.yml
     variables:
         rootCategoryCode: 'discipline_courses'
         page: 0
@@ -120,7 +120,7 @@ teststeps:
 
 -
     name: "首页:优质在线课程资源:职业教育学科(中文)" 
-    api: api/search_course.yml
+    api: api/web/search_course.yml
     variables:
         rootCategoryCode: 'tvet-related_courses'
         page: 0
@@ -137,7 +137,7 @@ teststeps:
 
 -
     name: "首页:优质在线课程资源:职业教育学科(英文)" 
-    api: api/search_course.yml
+    api: api/web/search_course.yml
     variables:
         rootCategoryCode: 'tvet-related_courses'
         page: 0
@@ -155,7 +155,7 @@ teststeps:
 
 -
     name: "首页:优质在线课程资源:职业教育学科(法文)" 
-    api: api/search_course.yml
+    api: api/web/search_course.yml
     variables:
         rootCategoryCode: 'tvet-related_courses'
         page: 0
@@ -173,7 +173,7 @@ teststeps:
 
 -
     name: "首页:优质在线课程资源:教师教育课程(中文)" 
-    api: api/search_course.yml
+    api: api/web/search_course.yml
     variables:
         rootCategoryCode: 'professional_development_courses'
         page: 0
@@ -192,7 +192,7 @@ teststeps:
 
 -
     name: "首页:优质在线课程资源:教师教育课程(英文)" 
-    api: api/search_course.yml
+    api: api/web/search_course.yml
     variables:
         rootCategoryCode: 'professional_development_courses'
         page: 0
@@ -209,7 +209,7 @@ teststeps:
         - eq: ["content.content.1.name", "Introduction and Application of Mind Maps"]
 -
     name: "首页:优质在线课程资源:教师教育课程(法文)" 
-    api: api/search_course.yml
+    api: api/web/search_course.yml
     variables:
         rootCategoryCode: 'professional_development_courses'
         page: 0
@@ -229,7 +229,7 @@ teststeps:
 
 -
     name: "首页:亚非共同发起的高等教育机构列表(中文)" 
-    api: api/education.yml
+    api: api/web/education.yml
     variables:
         rootCategoryCode: 'discipline_courses'
         type: COLLEGE
@@ -241,7 +241,7 @@ teststeps:
 
 -
     name: "首页:亚非共同发起的高等教育机构列表(英文)" 
-    api: api/education.yml
+    api: api/web/education.yml
     variables:
         rootCategoryCode: 'discipline_courses'
         type: 'COLLEGE'
@@ -254,7 +254,7 @@ teststeps:
 
 -
     name: "首页:亚非共同发起的高等教育机构列表(法文)" 
-    api: api/education.yml
+    api: api/web/education.yml
     variables:
         rootCategoryCode: 'discipline_courses'
         type: 'COLLEGE'
@@ -267,7 +267,7 @@ teststeps:
 
 -
     name: "支持单位/高校和企业列表(中文)" 
-    api: api/education.yml
+    api: api/web/education.yml
     variables:
         rootCategoryCode: 'discipline_courses'
         type: ENTERPRISE
@@ -279,7 +279,7 @@ teststeps:
        
 -
     name: "支持单位/高校和企业列表(英文)" 
-    api: api/education.yml
+    api: api/web/education.yml
     variables:
         rootCategoryCode: 'discipline_courses'
         type: ENTERPRISE
@@ -292,7 +292,7 @@ teststeps:
 
 -
     name: "支持单位/高校和企业列表(法文)" 
-    api: api/education.yml
+    api: api/web/education.yml
     variables:
         rootCategoryCode: 'discipline_courses'
         type: ENTERPRISE

@@ -2,12 +2,12 @@ config:
     name: "测试课程详情页所有可点击部分的接口"
     variables:
         token: ${ENV(token)}
-        name_cn: '大数据课程体系'
-        name_en: '大数据课程体系'
-        name_fr: '大数据课程体系'
-        categoryName_cn: 'Data Science'
-        categoryName_en: 'Data Science'
-        categoryName_fr: 'Data Science'
+        name_cn: '人工智能技术现状与未来'
+        name_en: '人工智能技术现状与未来'
+        name_fr: '人工智能技术现状与未来'
+        categoryName_cn: '其他'
+        categoryName_en: 'Others'
+        categoryName_fr: 'Autres'
     "setup_hooks": [
         "${sleep(1)}"
     ]
@@ -22,9 +22,9 @@ teststeps:
 
 -
     name: "课程详情验证(中文)" 
-    api: api/courses_details.yml
+    api: api/web/courses_details.yml
     variables:
-        course_id: '395c1545-548a-43ed-b169-1c7eb08025ce'
+        course_id: '7a397068-b5d1-4afa-bc39-9fd125a02d7b'
         lang: 'zh-CN'
     extract:
         courseDetailList: content.courseDetailList
@@ -35,15 +35,15 @@ teststeps:
         - eq: ["content.status", 'OPEN']
         - ge: ["${get_list_len(courseDetailList)}", 0]
         - ge: ["${get_list_len(courseTeacherList)}", 0]
-        - eq: ["content.categoryName", "数据科学"]
+        - eq: ["content.categoryName", $categoryName_cn]
         - eq: ["content.languageCode", "cn"]
         - eq: ["content.languageName", "中文"]
 
 -
     name: "课程详情验证(英文)" 
-    api: api/courses_details.yml
+    api: api/web/courses_details.yml
     variables:
-        course_id: '395c1545-548a-43ed-b169-1c7eb08025ce'
+        course_id: '7a397068-b5d1-4afa-bc39-9fd125a02d7b'
         lang: 'en-US'
     validate: 
         - eq: ["status_code", 200]
@@ -51,15 +51,15 @@ teststeps:
         - eq: ["content.status", 'OPEN']
         - ge: ["${get_list_len(courseDetailList)}", 0]
         - ge: ["${get_list_len(courseTeacherList)}", 0]
-        - eq: ["content.categoryName", "Data Science"]
+        - eq: ["content.categoryName", $categoryName_en]
         - eq: ["content.languageCode", "cn"]
         - eq: ["content.languageName", "Chinese"]
 
 -
     name: "课程详情验证(法文)" 
-    api: api/courses_details.yml
+    api: api/web/courses_details.yml
     variables:
-        course_id: '395c1545-548a-43ed-b169-1c7eb08025ce'
+        course_id: '7a397068-b5d1-4afa-bc39-9fd125a02d7b'
         lang: 'fr-FR'
     validate: 
         - eq: ["status_code", 200]
@@ -67,15 +67,15 @@ teststeps:
         - eq: ["content.status", 'OPEN']
         - ge: ["${get_list_len(courseDetailList)}", 0]
         - ge: ["${get_list_len(courseTeacherList)}", 0]
-        - eq: ["content.categoryName", "Data Science"]
+        - eq: ["content.categoryName", $categoryName_fr]
         - eq: ["content.languageCode", "cn"]
         - eq: ["content.languageName", "chinois"]
 
 -
     name: "获取课程评论(评论前)"
-    api: api/get_course_comments.yml
+    api: api/web/get_course_comments.yml
     variables:
-        course_id: '395c1545-548a-43ed-b169-1c7eb08025ce'
+        course_id: '7a397068-b5d1-4afa-bc39-9fd125a02d7b'
         lang: 'zh-CN'
     extract:
         comment_contents_before: content.content
@@ -84,9 +84,9 @@ teststeps:
 
 -
     name: "评论课程"
-    api: api/make_course_comments.yml
+    api: api/web/make_course_comments.yml
     variables:
-        course_id: '395c1545-548a-43ed-b169-1c7eb08025ce'
+        course_id: '7a397068-b5d1-4afa-bc39-9fd125a02d7b'
         lang: 'zh-CN'
         content: '测试httprunner2'
     validate:
@@ -94,9 +94,9 @@ teststeps:
 
 -
     name: "获取课程评论(评论后)"
-    api: api/get_course_comments.yml
+    api: api/web/get_course_comments.yml
     variables:
-        course_id: '395c1545-548a-43ed-b169-1c7eb08025ce'
+        course_id: '7a397068-b5d1-4afa-bc39-9fd125a02d7b'
         lang: 'zh-CN'
         content: '测试httprunner2'
     extract:
@@ -105,4 +105,23 @@ teststeps:
         - eq: ["status_code", 200]
         - eq: ["content.content.0.content", $content]
         #- gt: ["${get_list_len($comment_contents_after)}", "${get_list_len($comment_contents_before)}" ]
+
+-
+    name: "查看课程站章节"
+    api: api/web/get_course_subtitles.yml
+    variables:
+        course_lesson_id: cdf6de84-ce56-40f7-ba42-87cd44e14e1d
+        lang: 'zh-CN'
+    validate:
+        - eq: ["status_code", 200]
+
+-
+    name: "查看视频课程问题"
+    api: api/web/get_course_video.yml
+    variables:
+        video_id: cdf6de84-ce56-40f7-ba42-87cd44e14e1d
+        lang: 'zh-CN'
+    validate:
+        - eq: ["status_code", 200]
+
 

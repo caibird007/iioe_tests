@@ -21,7 +21,7 @@ teststeps:
 
 -
     name: search edge thing 
-    api: api/thing_list.yml
+    api: api/web/thing_list.yml
     variables:
         search: $edge_thing_name
         type: $edge_type
@@ -36,7 +36,7 @@ teststeps:
 
 -
     name: search end thing 
-    api: api/thing_list.yml
+    api: api/web/thing_list.yml
     variables:
         search: $end_thing_name
         type: $end_type
