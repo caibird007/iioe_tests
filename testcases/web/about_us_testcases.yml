@@ -1,0 +1,301 @@
+config:
+    name: "关于我们所有可点击部分的接口测试"
+    variables:
+        token: ${ENV(token)}
+    "setup_hooks": [
+        "${sleep(1)}"
+    ]
+    "teardown_hooks": [
+        "${sleep(1)}"
+    ]
+    #export:
+    #    - created_edge_thing_id
+    #    - created_end_thing_id
+
+teststeps:
+
+-
+    name: "关于我们:联系我们(中文)" 
+    api: api/web/contact_us.yml
+    variables:
+        content: "{'email':'306807275@qq.com','name':'ccg','content':'haha'}"
+        lang: 'zh-CN'
+    validate:
+        - eq: ["status_code", 200]
+
+-
+    name: "关于我们:联系我们(英文)" 
+    api: api/web/contact_us.yml
+    variables:
+        content: "{'email':'306807275@qq.com','name':'ccg','content':'haha'}"
+        lang: 'en-US'
+    validate:
+        - eq: ["status_code", 200]
+
+-
+    name: "关于我们:联系我们(法文)" 
+    api: api/web/contact_us.yml
+    variables:
+        content: "{'email':'306807275@qq.com','name':'ccg','content':'haha'}"
+        lang: 'fr-FR'
+    validate:
+        - eq: ["status_code", 200]
+
+
+-
+    name: "首页:优质在线课程资源类目列表(法文)" 
+    api: api/web/category_list.yml
+    variables:
+        page: 0
+        size: 2
+        lang: 'fr-FR'
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.0.code", "discipline_courses"]
+        - eq: ["content.1.code", "tvet-related_courses"]
+        - eq: ["content.2.code", "professional_development_courses"]
+        - eq: ["content.0.name", "Cours thématiques"]
+        - eq: ["content.1.name", "Cours d'EFTP"]
+        - eq: ["content.2.name", "Cours de développement professionnel pour les enseignants"]
+
+
+
+
+-
+    name: "首页:优质在线课程资源:学科课程(中文)" 
+    api: api/web/search_course.yml
+    variables:
+        rootCategoryCode: 'discipline_courses'
+        page: 0
+        size: 2
+        hot: false
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.empty", false]
+        - ge: ["content.numberOfElements", 2]
+        - eq: ["content.content.0.educationName", "深圳信息职业技术学院"]
+        - eq: ["content.content.1.educationName", "深圳职业技术学院"]
+        - eq: ["content.content.0.name", "Competition Driven Application of Artificial Intelligence"]
+        - eq: ["content.content.1.name", "4G&5G Mobile Communication System"]
+
+-
+    name: "首页:优质在线课程资源:学科课程(英文)" 
+    api: api/web/search_course.yml
+    variables:
+        rootCategoryCode: 'discipline_courses'
+        page: 0
+        size: 2
+        lang: 'en-US'
+        hot: false
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.empty", false]
+        - ge: ["content.numberOfElements", 2]
+        - eq: ["content.content.0.educationName", "Shenzhen Institute of Information Technology"]
+        - eq: ["content.content.1.educationName", "Shenzhen Polytechnic"]
+        - eq: ["content.content.0.name", "Competition Driven Application of Artificial Intelligence"]
+        - eq: ["content.content.1.name", "4G&5G Mobile Communication System"]
+
+-
+    name: "首页:优质在线课程资源:学科课程(法文)" 
+    api: api/web/search_course.yml
+    variables:
+        rootCategoryCode: 'discipline_courses'
+        page: 0
+        size: 2
+        lang: 'fr-FR'
+        hot: false
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.empty", false]
+        - ge: ["content.numberOfElements", 2]
+        - eq: ["content.content.0.educationName", "Institut des Technologies de l’Information de Shenzhen"]
+        - eq: ["content.content.1.educationName", "Institut Polytechnique de Shenzhen"]
+        - eq: ["content.content.0.name", "Competition Driven Application of Artificial Intelligence"]
+        - eq: ["content.content.1.name", "4G&5G Mobile Communication System"]
+
+-
+    name: "首页:优质在线课程资源:职业教育学科(中文)" 
+    api: api/web/search_course.yml
+    variables:
+        rootCategoryCode: 'tvet-related_courses'
+        page: 0
+        size: 2
+        hot: false
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.empty", false]
+        - ge: ["content.numberOfElements", 2]
+        - eq: ["content.content.0.educationName", "深圳市优必选科技股份有限公司"]
+        - eq: ["content.content.1.educationName", "极客学院"]
+        - eq: ["content.content.0.name", "Introduction of Yanshee Toturial"]
+        - eq: ["content.content.1.name", "Distributed  Web Crawler by Python (Intermediate)"]
+
+-
+    name: "首页:优质在线课程资源:职业教育学科(英文)" 
+    api: api/web/search_course.yml
+    variables:
+        rootCategoryCode: 'tvet-related_courses'
+        page: 0
+        size: 2
+        lang: 'en-US'
+        hot: false
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.empty", false]
+        - ge: ["content.numberOfElements", 2]
+        - eq: ["content.content.0.educationName", "Shenzhen UBTECH Co., Ltd."]
+        - eq: ["content.content.1.educationName", "Jiker"]
+        - eq: ["content.content.0.name", "Introduction of Yanshee Toturial"]
+        - eq: ["content.content.1.name", "Distributed  Web Crawler by Python (Intermediate)"]
+
+-
+    name: "首页:优质在线课程资源:职业教育学科(法文)" 
+    api: api/web/search_course.yml
+    variables:
+        rootCategoryCode: 'tvet-related_courses'
+        page: 0
+        size: 2
+        lang: 'fr-FR'
+        hot: false
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.empty", false]
+        - ge: ["content.numberOfElements", 2]
+        - eq: ["content.content.0.educationName", "Shenzhen UBTECH Co., Ltd."]
+        - eq: ["content.content.1.educationName", "Jiker"]
+        - eq: ["content.content.0.name", "Introduction of Yanshee Toturial"]
+        - eq: ["content.content.1.name", "Distributed  Web Crawler by Python (Intermediate)"]
+
+-
+    name: "首页:优质在线课程资源:教师教育课程(中文)" 
+    api: api/web/search_course.yml
+    variables:
+        rootCategoryCode: 'professional_development_courses'
+        page: 0
+        size: 2
+        #lang: 'en-US'
+        hot: false
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.empty", false]
+        - ge: ["content.numberOfElements", 2]
+        - eq: ["content.content.0.educationName", "联合国教科文组织高等教育创新中心"]
+        - eq: ["content.content.1.educationName", "联合国教科文组织高等教育创新中心"]
+        - eq: ["content.content.0.name", "How to Make an Online Course"]
+        - eq: ["content.content.1.name", "Introduction and Application of Mind Maps"]
+
+
+-
+    name: "首页:优质在线课程资源:教师教育课程(英文)" 
+    api: api/web/search_course.yml
+    variables:
+        rootCategoryCode: 'professional_development_courses'
+        page: 0
+        size: 2
+        lang: 'en-US'
+        hot: false
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.empty", false]
+        - ge: ["content.numberOfElements", 2]
+        - eq: ["content.content.0.educationName", "UNESCO-ICHEI"]
+        - eq: ["content.content.1.educationName", "UNESCO-ICHEI"]
+        - eq: ["content.content.0.name", "How to Make an Online Course"]
+        - eq: ["content.content.1.name", "Introduction and Application of Mind Maps"]
+-
+    name: "首页:优质在线课程资源:教师教育课程(法文)" 
+    api: api/web/search_course.yml
+    variables:
+        rootCategoryCode: 'professional_development_courses'
+        page: 0
+        size: 2
+        lang: 'fr-FR'
+        hot: false
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.empty", false]
+        - ge: ["content.numberOfElements", 2]
+        - eq: ["content.content.0.educationName", "UNESCO-ICHEI"]
+        - eq: ["content.content.1.educationName", "UNESCO-ICHEI"]
+        - eq: ["content.content.0.name", "How to Make an Online Course"]
+        - eq: ["content.content.1.name", "Introduction and Application of Mind Maps"]
+
+
+
+-
+    name: "首页:亚非共同发起的高等教育机构列表(中文)" 
+    api: api/web/education.yml
+    variables:
+        rootCategoryCode: 'discipline_courses'
+        type: COLLEGE
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.empty", false]
+        - ge: ["content.numberOfElements", 4]
+        - eq: ["content.content.0.country", "中国"]
+
+-
+    name: "首页:亚非共同发起的高等教育机构列表(英文)" 
+    api: api/web/education.yml
+    variables:
+        rootCategoryCode: 'discipline_courses'
+        type: 'COLLEGE'
+        lang: 'en-US'
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.empty", false]
+        - ge: ["content.numberOfElements", 4]
+        - eq: ["content.content.0.country", "China"]
+
+-
+    name: "首页:亚非共同发起的高等教育机构列表(法文)" 
+    api: api/web/education.yml
+    variables:
+        rootCategoryCode: 'discipline_courses'
+        type: 'COLLEGE'
+        lang: 'fr-FR'
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.empty", false]
+        - ge: ["content.numberOfElements", 4]
+        - eq: ["content.content.0.country", "Chine"]
+
+-
+    name: "支持单位/高校和企业列表(中文)" 
+    api: api/web/education.yml
+    variables:
+        rootCategoryCode: 'discipline_courses'
+        type: ENTERPRISE
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.empty", false]
+        - ge: ["content.numberOfElements", 4]
+        - eq: ["content.content.0.country", "奥兰群岛"]
+       
+-
+    name: "支持单位/高校和企业列表(英文)" 
+    api: api/web/education.yml
+    variables:
+        rootCategoryCode: 'discipline_courses'
+        type: ENTERPRISE
+        lang: 'en-US'
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.empty", false]
+        - ge: ["content.numberOfElements", 4]
+        - eq: ["content.content.0.country", "Aland Islands"]
+
+-
+    name: "支持单位/高校和企业列表(法文)" 
+    api: api/web/education.yml
+    variables:
+        rootCategoryCode: 'discipline_courses'
+        type: ENTERPRISE
+        lang: 'fr-FR'
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.empty", false]
+        - ge: ["content.numberOfElements", 4]
+        - eq: ["content.content.0.country", "Îles Aland"]
+

@@ -1,0 +1,32 @@
+#教师ICT提交个人信息
+name: /api/users/40f8f2ab-e068-426c-8f2d-4e2d73be5300/archives
+base_url: ${ENV(baseurl)}
+variables:
+    token: ${ENV(token)}
+    languageCode: 'cn' #cn,en,fr
+    lang: "zh-CN"
+    user_id: '40f8f2ab-e068-426c-8f2d-4e2d73be5300'
+    jobTitle: "LECTURER"
+    qualification: "PhD"
+    teachingDiscipline: "ART"
+    teachingEndDate: "now"
+    teachingStartDate: "2020-05-05"
+    teachingSubject: "dfs "
+request:
+    url: /api/users/$user_id/archives
+    method: POST
+    headers:
+        Content-Type: "application/json"
+        Accept-Language: $lang
+        accept: "*/*"
+        Authorization: $token
+    json:
+        jobTitle: $jobTitle
+        qualification: $qualification
+        teachingDiscipline: $teachingDiscipline
+        teachingEndDate: $teachingEndDate
+        teachingStartDate: $teachingStartDate
+        teachingSubject: $teachingSubject
+validate:
+    - eq: ["status_code", 401]
+

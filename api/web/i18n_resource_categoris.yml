@@ -2,6 +2,7 @@ name: /api/i18n/resource_categories
 base_url: ${ENV(baseurl)}
 variables:
     token: ${ENV(token)}
+    lang: 'zh-CN'
 request:
     url: /api/i18n/resource_categories
     method: GET
@@ -9,6 +10,7 @@ request:
         Content-Type: "application/json"
         accept: "*/*"
         Authorization: $token
+        Accept-Language: $lang
 validate:
     - eq: ["status_code", 200]
     - eq:

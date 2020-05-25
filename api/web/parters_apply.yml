@@ -1,0 +1,40 @@
+#申请合作伙伴
+name: /api/partnerships/applications
+base_url: ${ENV(baseurl)}
+variables:
+    token: ${ENV(token)}
+    languageCode: 'cn' #cn,en,fr
+    lang: "zh-CN"
+    content: "nihao"
+    additionalDescription: "备注"
+    contact: {firstName: "21313", lastName: "2131", workEmail: "22@11.com"}
+    firstName: "21313"
+    lastName: "2131"
+    workEmail: "22@11.com"
+    organizationTypeCode: "HIGHER_EDUCATION_INSTITUTION"
+    partnershipName: "111"
+    partnershipType: {coursesAndTraining: {checked: true, file: ""}}
+    regionCode: "AX"
+request:
+    url: /api/partnerships/applications
+    method: POST
+    headers:
+        Content-Type: "application/json"
+        Accept-Language: $lang
+        accept: "*/*"
+        Authorization: $token
+    json:
+        content: $content 
+        additionalDescription: $additionalDescription
+        contact: $contact
+        firstName: $firstName
+        lastName: $lastName
+        workEmail: $workEmail
+        organizationTypeCode: $organizationTypeCode
+        partnershipName: $partnershipName
+        partnershipType: $partnershipType
+        regionCode: $regionCode
+
+validate:
+    - eq: ["status_code", 200]
+

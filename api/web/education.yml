@@ -17,7 +17,6 @@ request:
         type: $type
         page: $page
         size: $size
-
 validate:
     - eq:
         - status_code

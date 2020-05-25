@@ -1,3 +1,4 @@
 *.html
 *.har
 logs
+__pycache__

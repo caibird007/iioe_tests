@@ -1,23 +1,28 @@
+#图书馆资源api
 name: /api/libraries/resources
 base_url: ${ENV(baseurl)}
 variables:
     token: ${ENV(token)}
     size: 4
-    categoryCode: ''
+    categoryCode: '' #IIOE_DOCUMENTS,IIOE_TRAINING_MATERIALS,ICT_ED_PUBLICATIONS
     page: '0'
     size: '20'
     year: ''
+    lang: "zh-CN"
+    formatCode: '' #PDF,VIDEO,WORD,OTHER
 request:
     url: /api/libraries/resources
     method: GET
     headers:
         Content-Type: "application/json"
         accept: "*/*"
+        Accept-Language: $lang
         Authorization: $token
     params:
         size: $size
         page: $page
         categoryCode: $categoryCode
+        formatCode: $formatCode
         size: $size
         year: $year
 validate:
@@ -29,5 +34,5 @@ validate:
       - application/json;charset=UTF-8
     - ge:
       - content.totalPages
-      - 1
+      - 0
 

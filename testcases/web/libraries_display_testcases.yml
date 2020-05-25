@@ -1,0 +1,190 @@
+config:
+    name: "测试图书馆所有可点击部分的接口测试"
+    variables:
+        token: ${ENV(token)}
+    "setup_hooks": [
+        "${sleep(1)}"
+    ]
+    "teardown_hooks": [
+        "${sleep(1)}"
+    ]
+    #export:
+    #    - created_edge_thing_id
+    #    - created_end_thing_id
+
+teststeps:
+
+-
+    name: "图书馆页面:最新资源(中文)" 
+    api: api/web/libraries_resources.yml
+    variables:
+        page: 0
+        size: 4
+        lang: 'zh-CN'
+    extract:
+        resource_list: content.content
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.numberOfElements", 4]
+        - eq: ["content.empty", false]
+        - eq: ["${is_in_cn_library_categrois($resource_list)}", True]
+
+
+-
+    name: "图书馆:最新资源(英文)" 
+    api: api/web/libraries_resources.yml
+    variables:
+        page: 0
+        size: 4
+        lang: 'en-US'
+    extract:
+        resource_list: content.content
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.numberOfElements", 4]
+        - eq: ["content.empty", false]
+        - eq: ["${is_in_en_library_categrois($resource_list)}", True]
+
+-
+    name: "图书馆:最新资源(法文)" 
+    api: api/web/libraries_resources.yml
+    variables:
+        page: 0
+        size: 4
+        lang: 'fr-FR'
+    extract:
+        resource_list: content.content
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.numberOfElements", 4]
+        - eq: ["content.empty", false]
+        - eq: ["${is_in_fr_library_categrois($resource_list)}", True]
+
+-
+    name: "图书馆:查找IIOE文档(中文),指定年限" 
+    api: api/web/libraries_resources.yml
+    variables:
+        page: 0
+        size: 20
+        year: 2020
+        categoryCode: IIOE_DOCUMENTS
+        lang: 'zh-CN'
+    extract:
+        resource_list: content.content
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["${is_in_cn_library_categrois($resource_list)}", True]
+        - eq: ["${is_resources_IIOE_DOCUMENTS($resource_list)}", True]
+
+-
+    name: "图书馆:查找IIOE文档(pdf),指定年限(中文)" 
+    api: api/web/libraries_resources.yml
+    variables:
+        page: 0
+        size: 20
+        year: 2020
+        formatCode: 'PDF'
+        categoryCode: IIOE_DOCUMENTS
+        lang: 'zh-CN'
+    extract:
+        resource_list: content.content
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["${is_in_cn_library_categrois($resource_list)}", True]
+        - eq: ["${is_resources_pdf($resource_list)}", True]
+
+-
+    name: "图书馆:查找IIOE教育出版物(WORD)(法文)，指定年限" 
+    api: api/web/libraries_resources.yml
+    variables:
+        page: 0
+        size: 20
+        year: 2020
+        lang: 'fr-FR'
+        formatCode: 'WORD'
+    extract:
+        resource_list: content.content
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["${is_in_fr_library_categrois($resource_list)}", True]
+        - eq: ["${is_resources_word($resource_list)}", True]
+
+
+-
+    name: "图书馆:查找IIOE培训材料(英文)，指定年限" 
+    api: api/web/libraries_resources.yml
+    variables:
+        page: 0
+        size: 20
+        year: 2020
+        categoryCode: IIOE_TRAINING_MATERIALS
+        lang: 'en-US'
+    extract:
+        resource_list: content.content
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["${is_in_en_library_categrois($resource_list)}", True]
+        - eq: ["${is_resources_IIOE_TRAINING_MATERIALS($resource_list)}", True]
+
+-
+    name: "图书馆:查找IIOE文档(pdf)(英文),指定年限" 
+    api: api/web/libraries_resources.yml
+    variables:
+        page: 0
+        size: 20
+        year: 2020
+        formatCode: 'VIDEO'
+        lang: 'en-US'
+    extract:
+        resource_list: content.content
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["${is_in_en_library_categrois($resource_list)}", True]
+        - eq: ["${is_resources_video($resource_list)}", True]
+
+-
+    name: "图书馆:查找IIOE教育出版物(法文),指定年限" 
+    api: api/web/libraries_resources.yml
+    variables:
+        page: 0
+        size: 20
+        year: 2020
+        categoryCode: ICT_ED_PUBLICATIONS
+        lang: 'fr-FR'
+    extract:
+        resource_list: content.content
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["${is_in_fr_library_categrois($resource_list)}", True]
+        - eq: ["${is_resources_ICT_ED_PUBLICATIONS($resource_list)}", True]
+
+-
+    name: "图书馆:查找IIOE教育出版物(WORD)(法文),指定年限" 
+    api: api/web/libraries_resources.yml
+    variables:
+        page: 0
+        size: 20
+        year: 2020
+        lang: 'fr-FR'
+        formatCode: 'WORD'
+    extract:
+        resource_list: content.content
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["${is_in_fr_library_categrois($resource_list)}", True]
+        - eq: ["${is_resources_word($resource_list)}", True]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,5 +1,5 @@
 config:
-    name: "测试顶部全局搜索功能，包括课程，技能，新闻搜索"
+    name: "测试全局:搜索功能，包括课程，技能，新闻搜索,发布仪式等"
     variables:
         token: ${ENV(token)}
     "setup_hooks": [
@@ -24,7 +24,7 @@ teststeps:
 
 -
     name: test search hot discipline_courses courses
-    api: api/web/web/search_course.yml
+    api: api/web/search_course.yml
     variables:
         rootCategoryCode: 'discipline_courses'
         name: "data"
@@ -34,7 +34,7 @@ teststeps:
 
 -
     name: test search tvet-related_courses courses(not hot)
-    api: api/web/web/search_course.yml
+    api: api/web/search_course.yml
     variables:
         rootCategoryCode: 'discipline_courses'
         name: "data"
@@ -45,7 +45,7 @@ teststeps:
 
 -
     name: test search professional_development_courses courses(not hot)
-    api: api/web/web/search_course.yml
+    api: api/web/search_course.yml
     variables:
         rootCategoryCode: 'professional_development_courses'
         name: "data"
@@ -57,17 +57,32 @@ teststeps:
 
 -
     name: test search all news
-    api: api/web/web/search_news.yml
+    api: api/web/search_news.yml
     variables:
         limit: 10
     validate:
         - eq: ["status_code", 200]
 -
     name: test search news named new
-    api: api/web/web/search_news.yml
+    api: api/web/search_news.yml
     variables:
         title: 'new'
         limit: 10
+    validate:
+        - eq: ["status_code", 200]
+-
+    name: 测试发布仪式中的愿景提交
+    api: api/web/wish.yml
+    variables:
+        content: 'new'
+    validate:
+        - eq: ["status_code", 200]
+
+-
+    name: 测试申请合作伙伴
+    api: api/web/parters_apply.yml
+    variables:
+        content: 'new'
     validate:
         - eq: ["status_code", 200]
 

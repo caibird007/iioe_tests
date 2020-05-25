@@ -1,0 +1,125 @@
+config:
+    name: "测试合作伙伴&合作伙伴详情页的接口"
+    variables:
+        token: ${ENV(token)}
+    "setup_hooks": [
+        "${sleep(1)}"
+    ]
+    "teardown_hooks": [
+        "${sleep(1)}"
+    ]
+    #export:
+    #    - created_edge_thing_id
+    #    - created_end_thing_id
+
+teststeps:
+
+-
+    name: "合作伙伴页面:高教机构(中文)" 
+    api: api/web/education.yml
+    variables:
+        page: 0
+        size: 12
+        type: COLLEGE
+        lang: 'zh-CN'
+    extract:
+        network_list: content.content
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.numberOfElements", 12]
+        - eq: ["content.empty", false]
+        - eq: ["${is_networks_college($network_list)}", True]
+        - eq: ["${is_networks_normal($network_list)}", True]
+        - eq: ["${search_Shenzhen_Polytechnic_from_college($network_list, $lang)}", True]
+
+-
+    name: "合作伙伴页面:高教机构(英文)" 
+    api: api/web/education.yml
+    variables:
+        page: 0
+        size: 12
+        type: COLLEGE
+        lang: 'en-US'
+    extract:
+        network_list: content.content
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.numberOfElements", 12]
+        - eq: ["content.empty", false]
+        - eq: ["${is_networks_college($network_list)}", True]
+        - eq: ["${is_networks_normal($network_list)}", True]
+        - eq: ["${search_Shenzhen_Polytechnic_from_college($network_list, $lang)}", True]
+
+-
+    name: "合作伙伴页面:高教机构(法文)" 
+    api: api/web/education.yml
+    variables:
+        page: 0
+        size: 12
+        type: COLLEGE
+        lang: 'fr-FR'
+    extract:
+        network_list: content.content
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["content.numberOfElements", 12]
+        - eq: ["content.empty", false]
+        - eq: ["${is_networks_college($network_list)}", True]
+        - eq: ["${is_networks_normal($network_list)}", True]
+        - eq: ["${search_Shenzhen_Polytechnic_from_college($network_list, $lang)}", True]
+
+-
+    name: "合作伙伴页面:企业(中文)" 
+    api: api/web/education.yml
+    variables:
+        page: 0
+        size: 12
+        type: ENTERPRISE
+        lang: 'zh-CN'
+    extract:
+        network_list: content.content
+    validate:
+        - eq: ["status_code", 200]
+        - ge: ["content.numberOfElements", 4]
+        - eq: ["content.empty", false]
+        - eq: ["${is_networks_enterprise($network_list)}", True]
+        - eq: ["${is_networks_normal($network_list)}", True]
+        - eq: ["${search_cio_times_from_enterprise($network_list, $lang)}", True]
+
+-
+    name: "合作伙伴页面:企业(英文)" 
+    api: api/web/education.yml
+    variables:
+        page: 0
+        size: 12
+        type: ENTERPRISE
+        lang: 'en-US'
+    extract:
+        network_list: content.content
+    validate:
+        - eq: ["status_code", 200]
+        - ge: ["content.numberOfElements", 4]
+        - eq: ["content.empty", false]
+        - eq: ["${is_networks_enterprise($network_list)}", True]
+        - eq: ["${is_networks_normal($network_list)}", True]
+        - eq: ["${search_cio_times_from_enterprise($network_list, $lang)}", True]
+
+-
+    name: "合作伙伴页面:企业(法文)" 
+    api: api/web/education.yml
+    variables:
+        page: 0
+        size: 12
+        type: ENTERPRISE
+        lang: 'fr-FR'
+    extract:
+        network_list: content.content
+    validate:
+        - eq: ["status_code", 200]
+        - ge: ["content.numberOfElements", 4]
+        - eq: ["content.empty", false]
+        - eq: ["${is_networks_enterprise($network_list)}", True]
+        - eq: ["${is_networks_normal($network_list)}", True]
+        - eq: ["${search_cio_times_from_enterprise($network_list, $lang)}", True]
+
+
