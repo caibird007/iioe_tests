@@ -1,5 +1,5 @@
 ## 简介
-IIOE的接口case
+IIOE的接口case，使用httprunner框架编写
 
 ### 环境依赖  
 
@@ -21,31 +21,33 @@ hrun -v
 
 ### 目录说明
 ```
-├── api
-│   ├── admin
+├── api //这里对应了fiddler从页面抓取的api
+│   ├── admin
 │   ├── h5
 │   └── web
-├── course.yml
-├── data
-│   └── thing.csv
 ├── debugtalk.py
-├── home.yml
-├── logs
-│   └── testcases
-├── __pycache__
-│   └── debugtalk.cpython-36.pyc
+├── logs //日志目录
+│   └── testcases
 ├── README.md
 ├── reports
 │   ├── 20200531T132749.718908.html
-│   └── 20200531T133115.263114.html
-├── requirements.txt
-├── testcases
-│   ├── admin
+├── requirements.txt 
+├── testcases //测试case
+│   ├── admin
 │   ├── h5
 │   └── web
-├── test.py
-└── testsuites
+└── testsuites //测试suites
     └── iioe_testsuite.yml
 
 ```
+
+### 运行方式
+```
+hrun testsuites/iioe_testsuite.yml
+```
+
+### 查看报告
+report下面
+例子：http://139.198.11.74:8000/20200531T132749.718908.html
+
 
