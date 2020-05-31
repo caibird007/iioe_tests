@@ -2,16 +2,28 @@
 import time
 import langid                             #引入langid模块
 
+COURSE_STATUS_OPEN='HAS_BEEN_ON_SHELVES'
+DEV='info'
+UAT='uat'
+PROD='prod'
+
 def sleep(n_secs):
     time.sleep(n_secs)
 
 def get_category_list():
     return ['学科课程','职业教育课程','职业教育课程']
 
+def skip_test_in_production_env(env=PROD):
+
+    if env == PROD:
+        return True
+    else:
+        return False
+
 
 def is_courses_open(course_list):
     for course in course_list:
-        if course['status'] != "OPEN":
+        if course['status'] != COURSE_STATUS_OPEN:
             return False
     return True
 

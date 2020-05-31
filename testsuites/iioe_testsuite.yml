@@ -1,0 +1,66 @@
+
+config:
+    name: "device testsuite"
+    variables:
+        token: ${ENV(token)}
+        env: ${ENV(env)}
+    base_url: ${ENV(baseurl)}
+
+testcases:
+
+
+-
+    name: web全局测试
+    testcase: testcases/web/global_testcases.yml
+    variables:
+        token: $token
+        env: $env
+-
+    name: web首页入口测试
+    testcase: testcases/web/index_display_testcases.yml
+    variables:
+        token: $token
+        env: $env
+-
+    name: web课程入口测试
+    testcase: testcases/web/courses_display_testcases.yml
+    variables:
+        token: $token
+        env: $env
+-
+    name: web课程详情测试
+    testcase: testcases/web/courses_detail_testcases.yml
+    variables:
+        token: $token
+        env: $env
+-
+    name: web ICT测试
+    testcase: testcases/web/ict_testcases.yml
+    variables:
+        token: $token
+        env: $env
+-
+    name: web图书馆入口测试
+    testcase: testcases/web/libraries_display_testcases.yml
+    variables:
+        token: $token
+        env: $env
+-
+    name: web新闻入口测试
+    testcase: testcases/web/news_display_testcases.yml
+    variables:
+        token: $token
+        env: $env
+-
+    name: web合作伙伴入口测试
+    testcase: testcases/web/network_display_testcases.yml
+    variables:
+        token: $token
+        env: $env
+-
+    name: web关于我们测试
+    testcase: testcases/web/about_us_testcases.yml
+    variables:
+        token: $token
+        env: $env
+

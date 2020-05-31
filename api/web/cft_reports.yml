@@ -18,5 +18,5 @@ validate:
       - application/json;charset=UTF-8
     - eq:
       - content.progress
-      - NOT_STARTED
+      - COMPLETED
 

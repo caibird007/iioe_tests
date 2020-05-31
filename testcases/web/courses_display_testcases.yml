@@ -2,6 +2,7 @@ config:
     name: "测试课程页所有可点击部分的接口测试"
     variables:
         token: ${ENV(token)}
+        open_status: "HAS_BEEN_ON_SHELVES"
     "setup_hooks": [
         "${sleep(1)}"
     ]
@@ -85,10 +86,10 @@ teststeps:
         #- ge: ["${date2timestamp($first_ele_modfied_date)}", "${date2timestamp($second_ele_modfied_date)}"]
         #- ge: ["${date2timestamp($second_ele_modfied_date)}", "${date2timestamp($third_ele_modfied_date)}"]
         #- ge: ["${date2timestamp($third_ele_modfied_date)}", "${date2timestamp($forth_ele_modfied_date)}"]
-        - eq: ["content.content.0.status", "OPEN"]
-        - eq: ["content.content.1.status", "OPEN"]
-        - eq: ["content.content.2.status", "OPEN"]
-        - eq: ["content.content.3.status", "OPEN"]
+        - eq: ["content.content.0.status", "$open_status"]
+        - eq: ["content.content.1.status", "$open_status"]
+        - eq: ["content.content.2.status", "$open_status"]
+        - eq: ["content.content.3.status", "$open_status"]
 
 -
     name: "课程页:推荐课程(英文)" 
@@ -113,10 +114,10 @@ teststeps:
         #- ge: ["${date2timestamp($first_ele_modfied_date)}", "${date2timestamp($second_ele_modfied_date)}"]
         #- ge: ["${date2timestamp($second_ele_modfied_date)}", "${date2timestamp($third_ele_modfied_date)}"]
         #- ge: ["${date2timestamp($third_ele_modfied_date)}", "${date2timestamp($forth_ele_modfied_date)}"]
-        - eq: ["content.content.0.status", "OPEN"]
-        - eq: ["content.content.1.status", "OPEN"]
-        - eq: ["content.content.2.status", "OPEN"]
-        - eq: ["content.content.3.status", "OPEN"]
+        - eq: ["content.content.0.status", "$open_status"]
+        - eq: ["content.content.1.status", "$open_status"]
+        - eq: ["content.content.2.status", "$open_status"]
+        - eq: ["content.content.3.status", "$open_status"]
 -
     name: "课程页:推荐课程(法文)" 
     api: api/web/search_course.yml
@@ -140,10 +141,10 @@ teststeps:
         #- ge: ["${date2timestamp($first_ele_modfied_date)}", "${date2timestamp($second_ele_modfied_date)}"]
         #- ge: ["${date2timestamp($second_ele_modfied_date)}", "${date2timestamp($third_ele_modfied_date)}"]
         #- ge: ["${date2timestamp($third_ele_modfied_date)}", "${date2timestamp($forth_ele_modfied_date)}"]
-        - eq: ["content.content.0.status", "OPEN"]
-        - eq: ["content.content.1.status", "OPEN"]
-        - eq: ["content.content.2.status", "OPEN"]
-        - eq: ["content.content.3.status", "OPEN"]
+        - eq: ["content.content.0.status", "$open_status"]
+        - eq: ["content.content.1.status", "$open_status"]
+        - eq: ["content.content.2.status", "$open_status"]
+        - eq: ["content.content.3.status", "$open_status"]
 
 -
     name: "课程页:合作课程华为课程区(中文)" 

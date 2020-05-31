@@ -2,6 +2,7 @@ config:
     name: "测试全局:搜索功能，包括课程，技能，新闻搜索,发布仪式等"
     variables:
         token: ${ENV(token)}
+        env: ${ENV(env)}
     "setup_hooks": [
         "${sleep(1)}"
     ]
@@ -81,6 +82,7 @@ teststeps:
 -
     name: 测试申请合作伙伴
     api: api/web/parters_apply.yml
+    skipIf: ${skip_test_in_production_env($env)}
     variables:
         content: 'new'
     validate:

@@ -6,12 +6,13 @@ variables:
     languageCode: 'cn' #cn,en,fr
     lang: "zh-CN"
     content: 'test httprunner'
-    course_id: 395c1545-548a-43ed-b169-1c7eb08025ce
+    course_id: edf5e974-8112-4abe-88e2-1d8a09a033fc
+    Cookie: _ga=GA1.2.1612923475.1588685883; gr_user_id=96b94980-6ae6-4cc0-a982-dde81a8d7707; grwng_uid=79c0a9b1-0be0-4933-a95f-68bb840ceb09
 request:
     url: /api/courses/$course_id/comments
     method: POST
     headers:
-        Content-Type: "application/json"
+        Content-Type: application/json;charset=UTF-8
         Accept-Language: $lang
         accept: "*/*"
         Authorization: $token

@@ -5,7 +5,7 @@ variables:
     token: ${ENV(token)}
     languageCode: 'cn' #cn,en,fr
     lang: "zh-CN"
-    user_id: '40f8f2ab-e068-426c-8f2d-4e2d73be5300'
+    user_id: '5709a443-66e9-4bc5-948a-be092da8a0e6'
     jobTitle: "LECTURER"
     qualification: "PhD"
     teachingDiscipline: "ART"
@@ -28,5 +28,5 @@ request:
         teachingStartDate: $teachingStartDate
         teachingSubject: $teachingSubject
 validate:
-    - eq: ["status_code", 401]
+    - eq: ["status_code", 400]
 

@@ -2,6 +2,7 @@ config:
     name: "关于我们所有可点击部分的接口测试"
     variables:
         token: ${ENV(token)}
+        env: ${ENV(env)}
     "setup_hooks": [
         "${sleep(1)}"
     ]
@@ -17,6 +18,7 @@ teststeps:
 -
     name: "关于我们:联系我们(中文)" 
     api: api/web/contact_us.yml
+    skipIf: ${skip_test_in_production_env($env)}
     variables:
         content: "{'email':'306807275@qq.com','name':'ccg','content':'haha'}"
         lang: 'zh-CN'
@@ -26,6 +28,7 @@ teststeps:
 -
     name: "关于我们:联系我们(英文)" 
     api: api/web/contact_us.yml
+    skipIf: ${skip_test_in_production_env($env)}
     variables:
         content: "{'email':'306807275@qq.com','name':'ccg','content':'haha'}"
         lang: 'en-US'
@@ -35,6 +38,7 @@ teststeps:
 -
     name: "关于我们:联系我们(法文)" 
     api: api/web/contact_us.yml
+    skipIf: ${skip_test_in_production_env($env)}
     variables:
         content: "{'email':'306807275@qq.com','name':'ccg','content':'haha'}"
         lang: 'fr-FR'
@@ -73,10 +77,6 @@ teststeps:
         - eq: ["status_code", 200]
         - eq: ["content.empty", false]
         - ge: ["content.numberOfElements", 2]
-        - eq: ["content.content.0.educationName", "深圳信息职业技术学院"]
-        - eq: ["content.content.1.educationName", "深圳职业技术学院"]
-        - eq: ["content.content.0.name", "Competition Driven Application of Artificial Intelligence"]
-        - eq: ["content.content.1.name", "4G&5G Mobile Communication System"]
 
 -
     name: "首页:优质在线课程资源:学科课程(英文)" 
@@ -91,10 +91,6 @@ teststeps:
         - eq: ["status_code", 200]
         - eq: ["content.empty", false]
         - ge: ["content.numberOfElements", 2]
-        - eq: ["content.content.0.educationName", "Shenzhen Institute of Information Technology"]
-        - eq: ["content.content.1.educationName", "Shenzhen Polytechnic"]
-        - eq: ["content.content.0.name", "Competition Driven Application of Artificial Intelligence"]
-        - eq: ["content.content.1.name", "4G&5G Mobile Communication System"]
 
 -
     name: "首页:优质在线课程资源:学科课程(法文)" 
@@ -109,10 +105,6 @@ teststeps:
         - eq: ["status_code", 200]
         - eq: ["content.empty", false]
         - ge: ["content.numberOfElements", 2]
-        - eq: ["content.content.0.educationName", "Institut des Technologies de l’Information de Shenzhen"]
-        - eq: ["content.content.1.educationName", "Institut Polytechnique de Shenzhen"]
-        - eq: ["content.content.0.name", "Competition Driven Application of Artificial Intelligence"]
-        - eq: ["content.content.1.name", "4G&5G Mobile Communication System"]
 
 -
     name: "首页:优质在线课程资源:职业教育学科(中文)" 

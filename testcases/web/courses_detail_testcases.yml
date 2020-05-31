@@ -2,12 +2,14 @@ config:
     name: "测试课程详情页所有可点击部分的接口"
     variables:
         token: ${ENV(token)}
-        name_cn: '人工智能技术现状与未来'
-        name_en: '人工智能技术现状与未来'
-        name_fr: '人工智能技术现状与未来'
-        categoryName_cn: '其他'
-        categoryName_en: 'Others'
-        categoryName_fr: 'Autres'
+        env: ${ENV(env)}
+        name_cn: 'Introduction to Artificial Intelligence'
+        name_en: 'Introduction to Artificial Intelligence'
+        name_fr: 'Introduction to Artificial Intelligence'
+        categoryName_cn: '人工智能'
+        categoryName_en: 'AI'
+        categoryName_fr: 'Intelligence artificielle'
+        open_status: "HAS_BEEN_ON_SHELVES"
     "setup_hooks": [
         "${sleep(1)}"
     ]
@@ -21,10 +23,10 @@ config:
 teststeps:
 
 -
-    name: "课程详情验证(中文)" 
+    name: "课程详情验证(英文)" 
     api: api/web/courses_details.yml
     variables:
-        course_id: '7a397068-b5d1-4afa-bc39-9fd125a02d7b'
+        course_id: 'edf5e974-8112-4abe-88e2-1d8a09a033fc'
         lang: 'zh-CN'
     extract:
         courseDetailList: content.courseDetailList
@@ -32,50 +34,50 @@ teststeps:
     validate:
         - eq: ["status_code", 200]
         - eq: ["content.name", $name_cn]
-        - eq: ["content.status", 'OPEN']
+        - eq: ["content.status", '$open_status']
         - ge: ["${get_list_len(courseDetailList)}", 0]
         - ge: ["${get_list_len(courseTeacherList)}", 0]
         - eq: ["content.categoryName", $categoryName_cn]
-        - eq: ["content.languageCode", "cn"]
-        - eq: ["content.languageName", "中文"]
+        - eq: ["content.languageCode", "en"]
+        - eq: ["content.languageName", "英文"]
 
 -
     name: "课程详情验证(英文)" 
     api: api/web/courses_details.yml
     variables:
-        course_id: '7a397068-b5d1-4afa-bc39-9fd125a02d7b'
+        course_id: 'edf5e974-8112-4abe-88e2-1d8a09a033fc'
         lang: 'en-US'
     validate: 
         - eq: ["status_code", 200]
         - eq: ["content.name", $name_cn]
-        - eq: ["content.status", 'OPEN']
+        - eq: ["content.status", '$open_status']
         - ge: ["${get_list_len(courseDetailList)}", 0]
         - ge: ["${get_list_len(courseTeacherList)}", 0]
         - eq: ["content.categoryName", $categoryName_en]
-        - eq: ["content.languageCode", "cn"]
-        - eq: ["content.languageName", "Chinese"]
+        - eq: ["content.languageCode", "en"]
+        - eq: ["content.languageName", "English"]
 
 -
     name: "课程详情验证(法文)" 
     api: api/web/courses_details.yml
     variables:
-        course_id: '7a397068-b5d1-4afa-bc39-9fd125a02d7b'
+        course_id: 'edf5e974-8112-4abe-88e2-1d8a09a033fc'
         lang: 'fr-FR'
     validate: 
         - eq: ["status_code", 200]
         - eq: ["content.name", $name_cn]
-        - eq: ["content.status", 'OPEN']
+        - eq: ["content.status", '$open_status']
         - ge: ["${get_list_len(courseDetailList)}", 0]
         - ge: ["${get_list_len(courseTeacherList)}", 0]
         - eq: ["content.categoryName", $categoryName_fr]
-        - eq: ["content.languageCode", "cn"]
-        - eq: ["content.languageName", "chinois"]
+        - eq: ["content.languageCode", "en"]
+        - eq: ["content.languageName", "anglais"]
 
 -
     name: "获取课程评论(评论前)"
     api: api/web/get_course_comments.yml
     variables:
-        course_id: '7a397068-b5d1-4afa-bc39-9fd125a02d7b'
+        course_id: 'edf5e974-8112-4abe-88e2-1d8a09a033fc'
         lang: 'zh-CN'
     extract:
         comment_contents_before: content.content
@@ -85,8 +87,9 @@ teststeps:
 -
     name: "评论课程"
     api: api/web/make_course_comments.yml
+    skipIf: ${skip_test_in_production_env($env)}
     variables:
-        course_id: '7a397068-b5d1-4afa-bc39-9fd125a02d7b'
+        course_id: 'edf5e974-8112-4abe-88e2-1d8a09a033fc'
         lang: 'zh-CN'
         content: '测试httprunner2'
     validate:
@@ -96,7 +99,7 @@ teststeps:
     name: "获取课程评论(评论后)"
     api: api/web/get_course_comments.yml
     variables:
-        course_id: '7a397068-b5d1-4afa-bc39-9fd125a02d7b'
+        course_id: 'edf5e974-8112-4abe-88e2-1d8a09a033fc'
         lang: 'zh-CN'
         content: '测试httprunner2'
     extract:
@@ -110,16 +113,16 @@ teststeps:
     name: "查看课程站章节"
     api: api/web/get_course_subtitles.yml
     variables:
-        course_lesson_id: cdf6de84-ce56-40f7-ba42-87cd44e14e1d
+        course_lesson_id: d17f9c9e-5519-460a-be5f-c5af9ae576be
         lang: 'zh-CN'
     validate:
         - eq: ["status_code", 200]
 
 -
-    name: "查看视频课程问题"
+    name: "查看课程视频属性详情"
     api: api/web/get_course_video.yml
     variables:
-        video_id: cdf6de84-ce56-40f7-ba42-87cd44e14e1d
+        video_id: d17f9c9e-5519-460a-be5f-c5af9ae576be
         lang: 'zh-CN'
     validate:
         - eq: ["status_code", 200]

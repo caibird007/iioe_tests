@@ -11,8 +11,8 @@ variables:
     name: 
     page: 0
     hot: true
-    languageCode: 'cn' #cn,en,fr
     lang: "zh-CN"
+    languageCode:  #cn,en,fr
 request:
     url: /api/courses/search
     method: GET
@@ -25,9 +25,9 @@ request:
         size: $size
         name: $name
         rootCategoryCode: $rootCategoryCode
-        languageCode: $languageCode
         page: $page
         hot: $hot
+        languageCode: $languageCode
 validate:
     - eq: ["status_code", 200]
     - ge: ["content.totalElements",0]
